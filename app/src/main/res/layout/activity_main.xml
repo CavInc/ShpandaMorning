@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_bej"
+    tools:context="tk.cavink.shandamorning.ui.activites.MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/head_main"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@drawable/ic_rectangle_head2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="71dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo" />
+
+        <TextView
+            android:id="@+id/tv_head_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="Shpanda Morning"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:typeface="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_head_2"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:typeface="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/tv_head_1"
+            tools:text="TextView" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/startAlarm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:text="Тестовый старт будильника"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker1"
+        style="@style/MyNumberPickerTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_main" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker2"
+        style="@style/MyNumberPickerTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toEndOf="@+id/numberPicker1"
+        app:layout_constraintTop_toBottomOf="@+id/head_main" />
+</android.support.constraint.ConstraintLayout>
