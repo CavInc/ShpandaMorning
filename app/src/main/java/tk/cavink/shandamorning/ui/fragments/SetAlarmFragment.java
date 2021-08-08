@@ -83,6 +83,11 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
     // https://android.googlesource.com/platform/packages/apps/DeskClock/
     // https://github.com/LineageOS/android_packages_apps_DeskClock
     // https://github.com/CyanogenMod/android_packages_apps_DeskClock
+    // https://github.com/lithium/alarming/blob/master/src/com/hlidskialf/android/alarmclock/SetAlarm.java
+    // https://code.google.com/archive/p/kraigsandroid/source/default/source
+    // https://russianblogs.com/article/4668157306/
+
+
 
     // https://startandroid.ru/ru/uroki/vse-uroki-spiskom/377-urok-162-grafika-drawable-shape-gradient.html
     // https://stackoverflow.com/questions/13929877/how-to-make-gradient-background-in-android
