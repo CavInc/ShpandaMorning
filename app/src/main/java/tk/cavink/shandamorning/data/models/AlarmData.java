@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class AlarmData {
+    private int mId; // id будильника
     private int mH; // часы
     private int mM; // минуты
     private int mVolume; // громкость
@@ -15,6 +16,16 @@ public class AlarmData {
     private ArrayList<Boolean> mDays; // список дней
     private String mLang; // язык
 
+    public AlarmData(int id, int h, int m, int volume, boolean vibro, boolean active, ArrayList<Boolean> days, String lang) {
+        mId = id;
+        mH = h;
+        mM = m;
+        mVolume = volume;
+        mVibro = vibro;
+        mActive = active;
+        mDays = days;
+        mLang = lang;
+    }
 
     public AlarmData(int h, int m, int volume, boolean vibro, boolean active, ArrayList<Boolean> days, String lang) {
         mH = h;
@@ -24,6 +35,10 @@ public class AlarmData {
         mActive = active;
         mDays = days;
         mLang = lang;
+    }
+
+    public int getId() {
+        return mId;
     }
 
     public int getH() {

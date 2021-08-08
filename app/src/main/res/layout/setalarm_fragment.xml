@@ -20,12 +20,14 @@
 
         <NumberPicker
             android:id="@+id/numberPicker1"
-            style="@style/MyNumberPickerTheme"
+            android:background="@drawable/left_roller"
+            android:theme="@style/MyNumberPickerTheme"
             android:layout_width="wrap_content"
             android:layout_height="150dp"/>
 
         <NumberPicker
             android:id="@+id/numberPicker2"
+            android:background="@drawable/rigth_roller"
             style="@style/MyNumberPickerTheme"
             android:layout_width="wrap_content"
             android:layout_height="150dp"/>
@@ -34,7 +36,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/success_bt"
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_marginBottom="16dp"
@@ -57,7 +59,7 @@
         android:background="@drawable/bottom_circle_green_bg"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/success_bt"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_left_arroy"/>
 
@@ -72,7 +74,7 @@
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/success_bt"
         app:srcCompat="@drawable/ic_cancel"/>
 
     <LinearLayout
@@ -88,17 +90,57 @@
         app:layout_constraintTop_toBottomOf="@+id/lv_spiner">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            android:background="@drawable/day_bt"
+            android:textColor="#000000"
+            android:elevation="8dp"
+            android:textSize="14sp"
             android:text="Пн"/>
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:background="@drawable/day_bt"
+            android:text="Вт"/>
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:background="@drawable/day_bt"
+            android:text="Ср"/>
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:background="@drawable/day_bt"
+            android:text="Чт"/>
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:background="@drawable/day_bt"
+            android:text="Пт"/>
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:background="@drawable/day_bt"
+            android:text="Сб"/>
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:background="@drawable/day_bt"
+            android:text="Вс"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lv_lang"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
         android:elevation="6dp"
@@ -125,11 +167,11 @@
         android:id="@+id/lv_ring"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
         android:elevation="6dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,23 +181,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/roboto"
             android:layout_marginLeft="24dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
             android:text="Звук:"
             android:textColor="@android:color/black"
             android:typeface="normal"/>
+
+        <TextView
+            android:id="@+id/add_rington_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:gravity="right"
+            android:textColor="#8D8D8D"
+            android:textSize="13sp"
+            android:typeface="normal"
+            tools:text="DonDon"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lv_volume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
         android:elevation="6dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,30 +223,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
-            android:layout_marginTop="14dp"
-            android:layout_weight="1"
-            android:textColor="@android:color/black"
-            android:fontFamily="@font/roboto"
-            android:typeface="normal"
             android:layout_marginLeft="24dp"
-            android:text="Громкость:"/>
+            android:layout_marginTop="14dp"
+            android:layout_weight="2"
+            android:fontFamily="@font/roboto"
+            android:text="Громкость:"
+            android:textColor="@android:color/black"
+            android:typeface="normal"/>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:elevation="4dp"
+            android:progressDrawable="@drawable/seekbar_draw"
+            android:thumb="@drawable/seek_traker"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lv_vibro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
         android:elevation="6dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -197,21 +259,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginBottom="14dp"
-            android:layout_marginTop="14dp"
-            android:textColor="@android:color/black"
-            android:fontFamily="@font/roboto"
-            android:typeface="normal"
             android:layout_marginLeft="24dp"
-            android:text="Вибросигнал:"/>
-        <android.support.v7.widget.SwitchCompat
-            android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="Вибросигнал:"
+            android:textColor="@android:color/black"
+            android:typeface="normal"/>
+
+        <android.support.v7.widget.SwitchCompat
             android:id="@+id/vibro_set"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

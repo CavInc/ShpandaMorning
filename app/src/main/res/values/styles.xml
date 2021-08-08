@@ -14,11 +14,19 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!--
     <style name="MyNumberPickerTheme" parent="@android:style/Widget.Material.NumberPicker">
         <item name="colorControlNormal ">#33691e</item>
         <item name="android:background">#b3e5fc</item>
+        <item name="android:textSize">22sp</item>
     </style>
+    -->
 
+    <style name="MyNumberPickerTheme" >
+        <item name="colorControlNormal ">#33691e</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">22sp</item>
+    </style>
 
 
 </resources>

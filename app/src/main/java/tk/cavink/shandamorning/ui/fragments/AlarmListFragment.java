@@ -63,8 +63,10 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener 
         data.add(new AlarmData(12,17,100,false,true,null,"ru"));
         data.add(new AlarmData(18,45,100,false,true,null,"ru"));
 
+        ArrayList<AlarmData> data1 = mDataManager.getDBConnect().getAlarm(true);
+
         if (mAdapter == null) {
-            mAdapter = new AlarmListAdapter(getActivity(),data);
+            mAdapter = new AlarmListAdapter(getActivity(),data1);
             mRecyclerView.setAdapter(mAdapter);
         } else {
 
