@@ -57,39 +57,13 @@
             tools:text="TextView" />
     </android.support.constraint.ConstraintLayout>
 
-
-    <Button
-        android:id="@+id/startAlarm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:text="Тестовый старт будильника"
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <NumberPicker
-        android:id="@+id/numberPicker1"
-        style="@style/MyNumberPickerTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head_main" />
-
-    <NumberPicker
-        android:id="@+id/numberPicker2"
-        style="@style/MyNumberPickerTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toEndOf="@+id/numberPicker1"
-        app:layout_constraintTop_toBottomOf="@+id/head_main" />
+        app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>

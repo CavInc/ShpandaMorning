@@ -1,31 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <NumberPicker
-        android:id="@+id/numberPicker1"
-        style="@style/MyNumberPickerTheme"
+    <LinearLayout
+        android:id="@+id/lv_spiner"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head_main" />
-
-    <NumberPicker
-        android:id="@+id/numberPicker2"
-        style="@style/MyNumberPickerTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toEndOf="@+id/numberPicker1"
-        app:layout_constraintTop_toBottomOf="@+id/head_main" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <NumberPicker
+            android:id="@+id/numberPicker1"
+            style="@style/MyNumberPickerTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"/>
+
+        <NumberPicker
+            android:id="@+id/numberPicker2"
+            style="@style/MyNumberPickerTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"/>
+    </LinearLayout>
+
+
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bottom_circle_green_bg"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_sucess"/>
+
+    <ImageButton
+        android:id="@+id/back_bt"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bottom_circle_green_bg"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_left_arroy"/>
+
+    <ImageButton
+        android:id="@+id/delete_bt"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/buttom_circle_red_bg"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:srcCompat="@drawable/ic_cancel"/>
+
+    <LinearLayout
+        android:id="@+id/lv_day"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_spiner">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пн"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lv_lang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/element_bg"
+        android:elevation="6dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_day">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="Язык"
+            android:textColor="@android:color/black"
+            android:typeface="normal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lv_ring"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/element_bg"
+        android:elevation="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_lang">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/roboto"
+            android:layout_marginLeft="24dp"
+            android:text="Звук:"
+            android:textColor="@android:color/black"
+            android:typeface="normal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lv_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/element_bg"
+        android:elevation="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_ring">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/roboto"
+            android:typeface="normal"
+            android:layout_marginLeft="24dp"
+            android:text="Громкость:"/>
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lv_vibro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/element_bg"
+        android:elevation="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_volume">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/roboto"
+            android:typeface="normal"
+            android:layout_marginLeft="24dp"
+            android:text="Вибросигнал:"/>
+        <android.support.v7.widget.SwitchCompat
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:id="@+id/vibro_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

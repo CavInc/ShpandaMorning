@@ -14,6 +14,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
+import tk.cavink.shandamorning.ui.fragments.SetAlarmFragment;
 import tk.cavink.shandamorning.utils.Func;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,18 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
-
-        findViewById(R.id.startAlarm).setOnClickListener(this);
-
-        np1 = findViewById(R.id.numberPicker1);
-        np1.setMinValue(0);
-        np1.setMaxValue(23);
-        np2 = findViewById(R.id.numberPicker2);
-        np2.setMinValue(0);
-        np2.setMaxValue(59);
-
-        Calendar c = Calendar.getInstance();
-        np1.setValue(c.get(Calendar.HOUR_OF_DAY));
+        viewFragment(new AlarmListFragment(),"ALARM_LIST");
     }
 
     @Override
@@ -56,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // устанавливаем фрагмент в контейнер
-    private void viewFragment(Fragment fragment, String tag){
+    public void viewFragment(Fragment fragment, String tag){
         FragmentTransaction trz = getSupportFragmentManager().beginTransaction();
         trz.replace(R.id.container,fragment,tag);
         trz.commit();

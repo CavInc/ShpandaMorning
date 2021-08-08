@@ -8,14 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
+import android.widget.TextView;
+
+import java.util.Calendar;
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.ui.activites.MainActivity;
 
 /**
  * Created by cav on 05.08.21.
  */
 
-public class SetAlarmFragment extends Fragment {
+public class SetAlarmFragment extends Fragment implements View.OnClickListener{
 
     private NumberPicker np1;
     private NumberPicker np2;
@@ -32,6 +36,20 @@ public class SetAlarmFragment extends Fragment {
         np2.setMinValue(0);
         np2.setMaxValue(59);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        Calendar c = Calendar.getInstance();
+        np1.setValue(c.get(Calendar.HOUR_OF_DAY));
+
+        ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Создать будильник");
+
+        rootView.findViewById(R.id.back_bt).setOnClickListener(this);
+
+        return rootView;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.back_bt) {
+            ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
+        }
     }
 }
