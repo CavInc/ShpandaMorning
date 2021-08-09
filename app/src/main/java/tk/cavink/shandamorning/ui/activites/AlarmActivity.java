@@ -147,6 +147,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
             mAlarmData.setH(c.get(Calendar.HOUR_OF_DAY));
             mAlarmData.setM(c.get(Calendar.MINUTE));
             Func.setAlarmAM(this,mAlarmData,true);
+            finish();
         }
     }
 }
