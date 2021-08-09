@@ -13,6 +13,7 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import tk.cavink.shandamorning.R;
@@ -36,6 +37,9 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
 
     private TextView mLangTV;
     private int mode = ConstantManager.ADD_ALARM;
+    private int mAlarmID;
+
+    private boolean[] mDay = {false,false,false,false,false,false,false};
 
     public static SetAlarmFragment newInstance(int mode){
         Bundle args = new Bundle();
@@ -85,9 +89,11 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             mLangTV.setText("Русский");
         } else {
             AlarmData data = mDataManager.getAlarmData();
+            mAlarmID = data.getId();
             np1.setValue(data.getH());
             np2.setValue(data.getM());
             mVolume.setProgress(data.getVolume());
+            //mDay = data.getDays();
 
             mVibroSet.setChecked(data.isVibro());
         }
@@ -106,7 +112,11 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             boolean vibro =  mVibroSet.isChecked();
             int volume = mVolume.getProgress();
 
-            long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h,m,volume,vibro,true,null,"ru"));
+            if (mode == ConstantManager.ADD_ALARM) {
+                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, null, "ru"));
+            } else {
+                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, null, "ru"));
+            }
 
             //TODO установка будильника
 
@@ -116,7 +126,11 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
 
         }
         if (v.getId() == R.id.delete_bt) {
+            //TODO задать вопрос ?
+            mDataManager.getDBConnect().deleteAlarm(mAlarmID);
+            // TODO сброс будильника
 
+            ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
     }
 

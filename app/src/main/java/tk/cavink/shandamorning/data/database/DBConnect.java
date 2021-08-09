@@ -54,11 +54,32 @@ public class DBConnect {
         return recid;
     }
 
+    // Редактируем будильник
+    public void editAlarm(AlarmData alarmData){
+        open();
+        ContentValues values = new ContentValues();
+        values.put("hour",alarmData.getH());
+        values.put("minute",alarmData.getM());
+        values.put("volume",alarmData.getVolume());
+        values.put("lang",alarmData.getLang());
+        values.put("vibro_flg",alarmData.isVibro() ? 1 : 0);
+
+        database.update(DBHelper.ALARM,values,"id=?",new String[]{String.valueOf(alarmData.getId())});
+
+        close();
+    }
+
     public void setActiveAlarm(int id,boolean active){
         open();
         ContentValues values = new ContentValues();
         values.put("action_flg",active);
         database.update(DBHelper.ALARM,values,"id=?",new String[]{String.valueOf(id)});
+        close();
+    }
+
+    public void deleteAlarm(int id){
+        open();
+        database.delete(DBHelper.ALARM,"id=?",new String[]{String.valueOf(id)});
         close();
     }
 

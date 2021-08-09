@@ -64,4 +64,8 @@ public class AlarmData {
     public String getLang() {
         return mLang;
     }
+
+    public ArrayList<Boolean> getDays() {
+        return mDays;
+    }
 }
