@@ -4,12 +4,14 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import tk.cavink.shandamorning.R;
 import tk.cavink.shandamorning.data.managers.DataManager;
@@ -18,6 +20,7 @@ import tk.cavink.shandamorning.utils.ConstantManager;
 import tk.cavink.shandamorning.utils.Func;
 
 public class AlarmActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final double MAX_VOLUME = 100;
     private MediaPlayer mMediaPlayer;
 
     private DataManager mDataManager;
@@ -57,15 +60,14 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
             mTime.setText(String.format("%02d",mAlarmData.getH())+" : "+String.format("%02d",mAlarmData.getM()));
             urlSound = mAlarmData.getRingtone();
             alarm_volume = mAlarmData.getVolume();
+            vibrate = mAlarmData.isVibro();
         }
-
-
-        vibrate = getIntent().getBooleanExtra(ConstantManager.VIBRO_ENABLE,false);
 
         mMediaPlayer = new MediaPlayer();
         mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
         findViewById(R.id.stop_alarm).setOnClickListener(this);
+        findViewById(R.id.long_10).setOnClickListener(this);
     }
 
     @Override
@@ -87,11 +89,15 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     private void startMusic(){
 
         if (urlSound!=null && urlSound.length()!=0) {
+            Log.d("ALARMA",urlSound);
             try {
                 mMediaPlayer.reset();
                 mMediaPlayer.setDataSource(this, Uri.parse(urlSound));
                 mMediaPlayer.prepare();
+                final float volume = (float) (1 - (Math.log(MAX_VOLUME - alarm_volume) / Math.log(MAX_VOLUME)));
+
                 mMediaPlayer.setVolume(alarm_volume/100.0f, alarm_volume/100.0f);
+               // mMediaPlayer.setVolume(volume,volume);
                 mMediaPlayer.setScreenOnWhilePlaying(true); // не дает уснуть во премя воспроизведениея ?
                 mMediaPlayer.setLooping(true); // зациклим до окончания работы активности
                 int duration = mMediaPlayer.getDuration();
@@ -127,7 +133,20 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        stopMusic();
-        finish();
+        if (view.getId() == R.id.stop_alarm) {
+            stopMusic();
+            finish();
+        }
+        if (view.getId() == R.id.long_10) {
+            // запускаем на 10 минут познее
+            stopMusic();
+            Calendar c = Calendar.getInstance();
+            c.set(Calendar.MINUTE,mAlarmData.getM());
+            c.set(Calendar.HOUR_OF_DAY,mAlarmData.getH());
+            c.add(Calendar.MINUTE,10);
+            mAlarmData.setH(c.get(Calendar.HOUR_OF_DAY));
+            mAlarmData.setM(c.get(Calendar.MINUTE));
+            Func.setAlarmAM(this,mAlarmData,true);
+        }
     }
 }

@@ -54,6 +54,14 @@ public class AlarmData {
         return mM;
     }
 
+    public void setH(int h) {
+        mH = h;
+    }
+
+    public void setM(int m) {
+        mM = m;
+    }
+
     public int getVolume() {
         return mVolume;
     }

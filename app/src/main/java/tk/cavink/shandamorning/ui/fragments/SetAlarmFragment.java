@@ -111,6 +111,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             mVibroSet.setChecked(data.isVibro());
             if (data.getRingtone() != null) {
                 setRingtoneName(Uri.parse(data.getRingtone()));
+                mRingtoneUri = data.getRingtone();
             }
         }
 
