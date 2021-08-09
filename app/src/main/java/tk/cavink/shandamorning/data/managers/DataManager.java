@@ -4,6 +4,7 @@ import android.content.Context;
 
 import tk.cavink.shandamorning.App;
 import tk.cavink.shandamorning.data.database.DBConnect;
+import tk.cavink.shandamorning.data.models.AlarmData;
 
 /**
  * Created by cav on 06.08.21.
@@ -15,6 +16,8 @@ public class DataManager {
     private Context mContext;
     private PrefManager mPrefManager;
     private DBConnect mDBConnect;
+
+    private AlarmData mAlarmData;
 
 
     public static DataManager getInstance() {
@@ -40,5 +43,15 @@ public class DataManager {
 
     public DBConnect getDBConnect() {
         return mDBConnect;
+    }
+
+
+
+    public AlarmData getAlarmData() {
+        return mAlarmData;
+    }
+
+    public void setAlarmData(AlarmData alarmData) {
+        mAlarmData = alarmData;
     }
 }

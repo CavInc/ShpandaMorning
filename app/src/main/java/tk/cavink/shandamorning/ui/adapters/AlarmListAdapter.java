@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import tk.cavink.shandamorning.R;
 import tk.cavink.shandamorning.data.models.AlarmData;
+import tk.cavink.shandamorning.ui.helpers.SelectAlarmListener;
 
 /**
  * Created by cav on 05.08.21.
@@ -21,17 +22,19 @@ import tk.cavink.shandamorning.data.models.AlarmData;
 public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.ViewHolder> {
     private ArrayList<AlarmData> mData;
     private Context mContext;
+    private SelectAlarmListener mSelectAlarmListener;
 
-    public AlarmListAdapter(Context context, ArrayList<AlarmData> data) {
+    public AlarmListAdapter(Context context, ArrayList<AlarmData> data,SelectAlarmListener listener) {
         mContext = context;
         mData = data;
+        mSelectAlarmListener = listener;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.alarm_item,viewGroup,false);
-        return new ViewHolder(v);
+        return new ViewHolder(v,mSelectAlarmListener);
     }
 
     @Override
@@ -48,17 +51,31 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         return mData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public AlarmData getItem(int position){
+        return mData.get(position);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView mHour;
         public TextView mDay;
         public SwitchCompat mSwitch;
 
+        private SelectAlarmListener mSelectAlarmListener;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView,SelectAlarmListener listener) {
             super(itemView);
+            mSelectAlarmListener = listener;
             mHour = itemView.findViewById(R.id.item_time);
             mDay = itemView.findViewById(R.id.item_period);
             mSwitch = itemView.findViewById(R.id.item_activity);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (mSelectAlarmListener != null) {
+                mSelectAlarmListener.selectItem(getAdapterPosition());
+            }
         }
     }
 }

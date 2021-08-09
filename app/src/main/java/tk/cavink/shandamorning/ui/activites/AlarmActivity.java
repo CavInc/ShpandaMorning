@@ -8,11 +8,14 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.data.managers.DataManager;
 import tk.cavink.shandamorning.utils.ConstantManager;
 import tk.cavink.shandamorning.utils.Func;
 
 public class AlarmActivity extends AppCompatActivity {
     private MediaPlayer mMediaPlayer;
+
+    private DataManager mDataManager;
 
     private String urlSound;
     private int alarm_id;

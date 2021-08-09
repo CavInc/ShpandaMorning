@@ -81,8 +81,8 @@
         android:id="@+id/lv_day"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,46 +93,52 @@
             android:layout_width="32dp"
             android:layout_height="40dp"
             android:background="@drawable/day_bt"
-            android:textColor="#000000"
             android:elevation="8dp"
-            android:textSize="14sp"
-            android:text="Пн"/>
+            android:text="Пн"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
         <Button
             android:layout_width="32dp"
             android:layout_height="40dp"
-            android:textSize="14sp"
             android:background="@drawable/day_bt"
-            android:text="Вт"/>
+            android:text="Вт"
+            android:textSize="14sp" />
+
         <Button
             android:layout_width="32dp"
             android:layout_height="40dp"
-            android:textSize="14sp"
             android:background="@drawable/day_bt"
-            android:text="Ср"/>
+            android:text="Ср"
+            android:textSize="14sp" />
+
         <Button
             android:layout_width="32dp"
             android:layout_height="40dp"
-            android:textSize="14sp"
             android:background="@drawable/day_bt"
-            android:text="Чт"/>
+            android:text="Чт"
+            android:textSize="14sp" />
+
         <Button
             android:layout_width="32dp"
             android:layout_height="40dp"
-            android:textSize="14sp"
             android:background="@drawable/day_bt"
-            android:text="Пт"/>
+            android:text="Пт"
+            android:textSize="14sp" />
+
         <Button
             android:layout_width="32dp"
             android:layout_height="40dp"
-            android:textSize="14sp"
             android:background="@drawable/day_bt"
-            android:text="Сб"/>
+            android:text="Сб"
+            android:textSize="14sp" />
+
         <Button
             android:layout_width="32dp"
             android:layout_height="40dp"
-            android:textSize="14sp"
             android:background="@drawable/day_bt"
-            android:text="Вс"/>
+            android:text="Вс"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -150,8 +156,8 @@
         app:layout_constraintTop_toBottomOf="@+id/lv_day">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:id="@+id/lang_tv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
             android:layout_marginLeft="24dp"
@@ -161,6 +167,46 @@
             android:text="Язык"
             android:textColor="@android:color/black"
             android:typeface="normal"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:background="@drawable/lang_bg"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:layout_marginRight="24dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginLeft="8dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_arrow2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                tools:text="русский" />
+
+            <ImageView
+                android:id="@+id/lang_ru"
+                android:layout_marginLeft="8dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                app:srcCompat="@drawable/ic_russia" />
+
+            <ImageButton
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginRight="8dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_arrow3" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -232,11 +278,15 @@
             android:typeface="normal"/>
 
         <SeekBar
+            android:id="@+id/volume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1"
+            android:min="0"
+            android:max="100"
+            android:progress="80"
             android:elevation="4dp"
             android:progressDrawable="@drawable/seekbar_draw"
             android:thumb="@drawable/seek_traker"/>

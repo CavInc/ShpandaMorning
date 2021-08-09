@@ -18,12 +18,14 @@ import tk.cavink.shandamorning.data.managers.DataManager;
 import tk.cavink.shandamorning.data.models.AlarmData;
 import tk.cavink.shandamorning.ui.activites.MainActivity;
 import tk.cavink.shandamorning.ui.adapters.AlarmListAdapter;
+import tk.cavink.shandamorning.ui.helpers.SelectAlarmListener;
+import tk.cavink.shandamorning.utils.ConstantManager;
 
 /**
  * Created by cav on 05.08.21.
  */
 
-public class AlarmListFragment extends Fragment implements View.OnClickListener {
+public class AlarmListFragment extends Fragment implements View.OnClickListener,SelectAlarmListener {
     private DataManager mDataManager;
     private RecyclerView mRecyclerView;
     private AlarmListAdapter mAdapter;
@@ -66,7 +68,7 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener 
         ArrayList<AlarmData> data1 = mDataManager.getDBConnect().getAlarm(true);
 
         if (mAdapter == null) {
-            mAdapter = new AlarmListAdapter(getActivity(),data1);
+            mAdapter = new AlarmListAdapter(getActivity(),data1,this);
             mRecyclerView.setAdapter(mAdapter);
         } else {
 
@@ -75,8 +77,14 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        ((MainActivity) getActivity()).viewFragment(new SetAlarmFragment(),"SET_ALARM");
+        ((MainActivity) getActivity()).viewFragment(SetAlarmFragment.newInstance(ConstantManager.ADD_ALARM),"SET_ALARM");
     }
 
 
+    @Override
+    public void selectItem(int position) {
+        AlarmData data = mAdapter.getItem(position);
+        mDataManager.setAlarmData(data);
+        ((MainActivity) getActivity()).viewFragment(SetAlarmFragment.newInstance(ConstantManager.EDIT_ALARM),"SET_ALARM");
+    }
 }
