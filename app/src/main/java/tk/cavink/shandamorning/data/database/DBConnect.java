@@ -106,4 +106,25 @@ public class DBConnect {
         close();
         return rec;
     }
+
+    public AlarmData getAlarmOne(int id){
+        AlarmData rec = null;
+        open();
+        Cursor cursor = database.query(DBHelper.ALARM,
+                new String[]{"id","hour","minute","volume","lang","vibro_flg","action_flg","url_ringtone"},
+                null,null,null,null,null);
+        while (cursor.moveToNext()) {
+            rec = new AlarmData(cursor.getInt(cursor.getColumnIndex("id")),
+                    cursor.getInt(cursor.getColumnIndex("hour")),
+                    cursor.getInt(cursor.getColumnIndex("minute")),
+                    cursor.getInt(cursor.getColumnIndex("volume")),
+                    (cursor.getInt(cursor.getColumnIndex("vibro_flg")) == 1 ? true : false),
+                    (cursor.getInt(cursor.getColumnIndex("action_flg")) == 1 ? true : false),
+                    null,
+                    cursor.getString(cursor.getColumnIndex("lang")),
+                    cursor.getString(cursor.getColumnIndex("url_ringtone")));
+        }
+        close();
+        return rec;
+    }
 }

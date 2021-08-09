@@ -23,6 +23,7 @@ import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkerParameters;
+import tk.cavink.shandamorning.data.models.AlarmData;
 import tk.cavink.shandamorning.services.AlarmTaskReciver;
 import tk.cavink.shandamorning.ui.activites.AlarmActivity;
 
@@ -76,18 +77,31 @@ public class Func {
         WorkManager.getInstance().enqueue(oneTimeWorkRequest);
     }
 
-    public static void setAlarmAM(Context context,Date date,boolean mode){
-        Log.d("FUNC",dateToStr("yyyy-MM-dd HH:mm:ss",date));
+    public static void setAlarmAM(Context context, AlarmData date, boolean mode){
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent=new Intent(context, AlarmTaskReciver.class);
-        intent.putExtra("ALARM_ID",43);
+        intent.putExtra(ConstantManager.ALARM_ID,date.getId());
         // добавить констану ?
-        PendingIntent pi= PendingIntent.getBroadcast(context,43, intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pi= PendingIntent.getBroadcast(context,date.getId(), intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar cl = Calendar.getInstance();
+
         Calendar c = Calendar.getInstance();
-        c.setTime(date);
+        c.set(Calendar.HOUR_OF_DAY,date.getH());
+        c.set(Calendar.MINUTE,date.getM());
+        c.set(Calendar.SECOND,0);
+
+        // проверка по времени в текущей дате
+        if (cl.after(c)){
+            // время до то кореектируем на день вперед
+            Log.d("FNC",dateToStr("yyyy-MM-dd HH:mm:ss",cl.getTime()));
+            c.add(Calendar.DAY_OF_MONTH,1);
+        } else {
+            Log.d("FNC","BEFORE");
+        }
+
         Log.d("FUNC",dateToStr("yyyy-MM-dd HH:mm:ss",c.getTime()));
+
         if (mode) {
             am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
         } else {

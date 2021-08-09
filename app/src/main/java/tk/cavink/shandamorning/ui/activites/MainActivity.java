@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         c.set(Calendar.MINUTE,m);
         Log.d("MA",Func.dateToStr("yyyy-MM-dd HH:mm",c.getTime()));
         //Func.setAlarm(c.getTime());
-        Func.setAlarmAM(this,c.getTime(),Func.ALARM_START);
+        //Func.setAlarmAM(this,c.getTime(),Func.ALARM_START);
     }
 
     // устанавливаем фрагмент в контейнер

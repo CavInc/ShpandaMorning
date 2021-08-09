@@ -4,15 +4,20 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
+
+import java.io.IOException;
 
 import tk.cavink.shandamorning.R;
 import tk.cavink.shandamorning.data.managers.DataManager;
+import tk.cavink.shandamorning.data.models.AlarmData;
 import tk.cavink.shandamorning.utils.ConstantManager;
 import tk.cavink.shandamorning.utils.Func;
 
-public class AlarmActivity extends AppCompatActivity {
+public class AlarmActivity extends AppCompatActivity implements View.OnClickListener {
     private MediaPlayer mMediaPlayer;
 
     private DataManager mDataManager;
@@ -22,6 +27,10 @@ public class AlarmActivity extends AppCompatActivity {
     private int alarm_size;
     private int alarm_type;
     private boolean vibrate;
+
+    private AlarmData mAlarmData;
+    private TextView mTime;
+    private int alarm_volume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +47,25 @@ public class AlarmActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_alarm);
 
+        mDataManager = DataManager.getInstance();
+
+        mTime = findViewById(R.id.timeTv);
+
+        int mID = getIntent().getIntExtra(ConstantManager.ALARM_ID,-1);
+        if (mID != -1){
+            mAlarmData = mDataManager.getDBConnect().getAlarmOne(mID);
+            mTime.setText(String.format("%02d",mAlarmData.getH())+" : "+String.format("%02d",mAlarmData.getM()));
+            urlSound = mAlarmData.getRingtone();
+            alarm_volume = mAlarmData.getVolume();
+        }
+
+
         vibrate = getIntent().getBooleanExtra(ConstantManager.VIBRO_ENABLE,false);
 
         mMediaPlayer = new MediaPlayer();
         mMediaPlayer.setOnCompletionListener(mCompletionListener);
+
+        findViewById(R.id.stop_alarm).setOnClickListener(this);
     }
 
     @Override
@@ -50,11 +74,18 @@ public class AlarmActivity extends AppCompatActivity {
         if (vibrate) {
             Func.playMessage(this);
         }
+        startMusic();
     }
 
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     private void startMusic(){
-        /*
+
         if (urlSound!=null && urlSound.length()!=0) {
             try {
                 mMediaPlayer.reset();
@@ -70,7 +101,7 @@ public class AlarmActivity extends AppCompatActivity {
 
             }
         }
-        */
+
     }
 
     private void stopMusic(){
@@ -93,4 +124,10 @@ public class AlarmActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onClick(View view) {
+        stopMusic();
+        finish();
+    }
 }

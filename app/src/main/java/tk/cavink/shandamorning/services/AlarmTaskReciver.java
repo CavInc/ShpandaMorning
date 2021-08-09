@@ -15,10 +15,12 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class AlarmTaskReciver extends BroadcastReceiver {
     private Context mContext;
+    private int mId;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         mContext = context;
+        mId = intent.getIntExtra(ConstantManager.ALARM_ID,-1);
         startAlarm();
     }
 
@@ -33,9 +35,12 @@ public class AlarmTaskReciver extends BroadcastReceiver {
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);
         */
-        Intent intent = new Intent(mContext,AlarmActivity.class);
-        intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra(ConstantManager.VIBRO_ENABLE,true);
-        mContext.startActivity(intent);
+        if (mId != -1) {
+            Intent intent = new Intent(mContext, AlarmActivity.class);
+            intent.putExtra(ConstantManager.ALARM_ID,mId);
+            intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra(ConstantManager.VIBRO_ENABLE, true);
+            mContext.startActivity(intent);
+        }
     }
 }

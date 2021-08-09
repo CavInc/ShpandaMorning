@@ -41,7 +41,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         AlarmData rec = mData.get(position);
-        viewHolder.mHour.setText(String.valueOf(rec.getH())+":"+String.valueOf(rec.getM()));
+        viewHolder.mHour.setText(String.format("%02d",rec.getH())+":"+String.format("%02d",rec.getM()));
         viewHolder.mSwitch.setChecked(rec.isActive());
         viewHolder.mDay.setText("Каждый день");
 

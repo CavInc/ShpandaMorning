@@ -26,6 +26,7 @@ import tk.cavink.shandamorning.data.managers.DataManager;
 import tk.cavink.shandamorning.data.models.AlarmData;
 import tk.cavink.shandamorning.ui.activites.MainActivity;
 import tk.cavink.shandamorning.utils.ConstantManager;
+import tk.cavink.shandamorning.utils.Func;
 
 /**
  * Created by cav on 05.08.21.
@@ -134,6 +135,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             }
 
             //TODO установка будильника
+            Func.setAlarmAM(getActivity(),new AlarmData(mAlarmID,h, m, volume, vibro, true, null, "ru",mRingtoneUri),true);
 
             ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
