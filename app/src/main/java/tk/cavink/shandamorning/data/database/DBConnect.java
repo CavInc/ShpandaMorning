@@ -72,7 +72,7 @@ public class DBConnect {
     public void setActiveAlarm(int id,boolean active){
         open();
         ContentValues values = new ContentValues();
-        values.put("action_flg",active);
+        values.put("action_flg",active ? 1 : 0);
         database.update(DBHelper.ALARM,values,"id=?",new String[]{String.valueOf(id)});
         close();
     }

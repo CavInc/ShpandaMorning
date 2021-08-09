@@ -36,7 +36,8 @@ public class DBHelper extends SQLiteOpenHelper{
                 "volume integer default 100," + // громкость
                 "vibro_flg integer default 0, " + // 0 - нет сигнала
                 "action_flg integer default 1, " + // активный будильник
-                "lang text default 'ru'" + // язык
+                "lang text default 'ru'," + // язык
+                "url_ringtone text" + // рингтон
                 ")");
     }
 }

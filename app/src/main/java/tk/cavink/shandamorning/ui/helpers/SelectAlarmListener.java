@@ -6,4 +6,5 @@ package tk.cavink.shandamorning.ui.helpers;
 
 public interface SelectAlarmListener {
     void selectItem(int position);
+    void onChangeAction(int position,boolean action);
 }

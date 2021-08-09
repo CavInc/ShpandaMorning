@@ -7,6 +7,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         return mData.get(position);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,CompoundButton.OnCheckedChangeListener {
         public TextView mHour;
         public TextView mDay;
         public SwitchCompat mSwitch;
@@ -68,6 +69,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
             mHour = itemView.findViewById(R.id.item_time);
             mDay = itemView.findViewById(R.id.item_period);
             mSwitch = itemView.findViewById(R.id.item_activity);
+            mSwitch.setOnCheckedChangeListener(this);
             itemView.setOnClickListener(this);
         }
 
@@ -75,6 +77,13 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         public void onClick(View view) {
             if (mSelectAlarmListener != null) {
                 mSelectAlarmListener.selectItem(getAdapterPosition());
+            }
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            if (mSelectAlarmListener != null) {
+                mSelectAlarmListener.onChangeAction(getAdapterPosition(),b);
             }
         }
     }

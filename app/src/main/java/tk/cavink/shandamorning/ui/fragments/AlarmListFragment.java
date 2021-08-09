@@ -87,4 +87,11 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
         mDataManager.setAlarmData(data);
         ((MainActivity) getActivity()).viewFragment(SetAlarmFragment.newInstance(ConstantManager.EDIT_ALARM),"SET_ALARM");
     }
+
+    @Override
+    public void onChangeAction(int position, boolean action) {
+        //TODO добавить сюда отключение будильника
+
+        mDataManager.getDBConnect().setActiveAlarm(mAdapter.getItem(position).getId(),action);
+    }
 }
