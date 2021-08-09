@@ -46,6 +46,7 @@ public class DBConnect {
         values.put("minute",alarmData.getM());
         values.put("volume",alarmData.getVolume());
         values.put("lang",alarmData.getLang());
+        values.put("url_ringtone",alarmData.getRingtone());
         values.put("vibro_flg",alarmData.isVibro() ? 1 : 0);
 
         long recid = database.insert(DBHelper.ALARM,null,values);
@@ -62,6 +63,7 @@ public class DBConnect {
         values.put("minute",alarmData.getM());
         values.put("volume",alarmData.getVolume());
         values.put("lang",alarmData.getLang());
+        values.put("url_ringtone",alarmData.getRingtone());
         values.put("vibro_flg",alarmData.isVibro() ? 1 : 0);
 
         database.update(DBHelper.ALARM,values,"id=?",new String[]{String.valueOf(alarmData.getId())});
@@ -87,7 +89,7 @@ public class DBConnect {
         ArrayList<AlarmData> rec = new ArrayList<>();
         open();
         Cursor cursor = database.query(DBHelper.ALARM,
-                new String[]{"id","hour","minute","volume","lang","vibro_flg","action_flg"},
+                new String[]{"id","hour","minute","volume","lang","vibro_flg","action_flg","url_ringtone"},
                 null,null,null,null,null);
         while (cursor.moveToNext()) {
             rec.add(new AlarmData(cursor.getInt(cursor.getColumnIndex("id")),
@@ -97,7 +99,9 @@ public class DBConnect {
                     (cursor.getInt(cursor.getColumnIndex("vibro_flg")) == 1 ? true : false),
                     (cursor.getInt(cursor.getColumnIndex("action_flg")) == 1 ? true : false),
                     null,
-                    cursor.getString(cursor.getColumnIndex("lang"))));
+                    cursor.getString(cursor.getColumnIndex("lang")),
+                    cursor.getString(cursor.getColumnIndex("url_ringtone"))
+                    ));
         }
         close();
         return rec;

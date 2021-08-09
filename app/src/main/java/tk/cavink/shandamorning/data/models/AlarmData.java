@@ -13,10 +13,12 @@ public class AlarmData {
     private int mVolume; // громкость
     private boolean mVibro; // использовать вибро сигнал
     private boolean mActive; // активынй будильник
+    private String mRingtone; // рингтон
     private ArrayList<Boolean> mDays; // список дней
     private String mLang; // язык
 
-    public AlarmData(int id, int h, int m, int volume, boolean vibro, boolean active, ArrayList<Boolean> days, String lang) {
+    public AlarmData(int id, int h, int m, int volume, boolean vibro, boolean active,
+                     ArrayList<Boolean> days, String lang,String ringtone) {
         mId = id;
         mH = h;
         mM = m;
@@ -25,9 +27,11 @@ public class AlarmData {
         mActive = active;
         mDays = days;
         mLang = lang;
+        mRingtone = ringtone;
     }
 
-    public AlarmData(int h, int m, int volume, boolean vibro, boolean active, ArrayList<Boolean> days, String lang) {
+    public AlarmData(int h, int m, int volume, boolean vibro, boolean active,
+                     ArrayList<Boolean> days, String lang,String ringtone) {
         mH = h;
         mM = m;
         mVolume = volume;
@@ -35,6 +39,7 @@ public class AlarmData {
         mActive = active;
         mDays = days;
         mLang = lang;
+        mRingtone = ringtone;
     }
 
     public int getId() {
@@ -67,5 +72,9 @@ public class AlarmData {
 
     public ArrayList<Boolean> getDays() {
         return mDays;
+    }
+
+    public String getRingtone() {
+        return mRingtone;
     }
 }

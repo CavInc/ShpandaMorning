@@ -1,10 +1,15 @@
 package tk.cavink.shandamorning.ui.fragments;
 
+import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SwitchCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +33,8 @@ import tk.cavink.shandamorning.utils.ConstantManager;
 
 public class SetAlarmFragment extends Fragment implements View.OnClickListener{
     private static final String MODE = "MODE";
+    private static final int REQUEST_RINGTONE = 234;
+    private static final String TAG = "SAF";
     private DataManager mDataManager;
 
     private NumberPicker np1;
@@ -36,8 +43,12 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
     private SeekBar mVolume;
 
     private TextView mLangTV;
+    private TextView mRingtoneName;
+
     private int mode = ConstantManager.ADD_ALARM;
     private int mAlarmID;
+
+    private String mRingtoneUri;
 
     private boolean[] mDay = {false,false,false,false,false,false,false};
 
@@ -66,6 +77,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
         mVibroSet = rootView.findViewById(R.id.vibro_set);
         mLangTV = rootView.findViewById(R.id.lang_tv);
         mVolume = rootView.findViewById(R.id.volume);
+        mRingtoneName = rootView.findViewById(R.id.add_rington_name);
 
         np1 = rootView.findViewById(R.id.numberPicker1);
         np1.setMinValue(0);
@@ -96,6 +108,9 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             //mDay = data.getDays();
 
             mVibroSet.setChecked(data.isVibro());
+            if (data.getRingtone() != null) {
+                setRingtoneName(Uri.parse(data.getRingtone()));
+            }
         }
 
         return rootView;
@@ -113,9 +128,9 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             int volume = mVolume.getProgress();
 
             if (mode == ConstantManager.ADD_ALARM) {
-                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, null, "ru"));
+                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, null, "ru",mRingtoneUri));
             } else {
-                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, null, "ru"));
+                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, null, "ru",mRingtoneUri));
             }
 
             //TODO установка будильника
@@ -123,7 +138,8 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
         if (v.getId() == R.id.lv_ring) {
-
+            Intent intent=new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+            startActivityForResult(intent,REQUEST_RINGTONE);
         }
         if (v.getId() == R.id.delete_bt) {
             //TODO задать вопрос ?
@@ -132,6 +148,27 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
 
             ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_RINGTONE:
+                if (resultCode == getActivity().RESULT_OK) {
+                    Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+                    mRingtoneUri = uri.toString();
+                    setRingtoneName(uri);
+                }
+                break;
+            default:
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    private void setRingtoneName(Uri uri) {
+        Ringtone r=RingtoneManager.getRingtone(getActivity(), uri);
+        Log.d(TAG,uri.toString()+" "+r.getTitle(getActivity()));
+        mRingtoneName.setText(r.getTitle(getActivity()));
     }
 
     // https://android.googlesource.com/platform/packages/apps/DeskClock/

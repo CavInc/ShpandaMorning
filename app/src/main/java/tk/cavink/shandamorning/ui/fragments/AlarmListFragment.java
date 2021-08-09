@@ -58,13 +58,6 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
     }
 
     private void updateUI(){
-        ArrayList<AlarmData> data = new ArrayList<>();
-
-        data.add(new AlarmData(12,45,100,false,true,null,"ru"));
-        data.add(new AlarmData(02,55,100,false,true,null,"ru"));
-        data.add(new AlarmData(12,17,100,false,true,null,"ru"));
-        data.add(new AlarmData(18,45,100,false,true,null,"ru"));
-
         ArrayList<AlarmData> data1 = mDataManager.getDBConnect().getAlarm(true);
 
         if (mAdapter == null) {
