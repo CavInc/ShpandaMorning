@@ -156,7 +156,6 @@
         app:layout_constraintTop_toBottomOf="@+id/lv_day">
 
         <TextView
-            android:id="@+id/lang_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
@@ -180,14 +179,18 @@
             <ImageButton
                 android:layout_width="14dp"
                 android:layout_height="14dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginLeft="8dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_arrow2" />
+                app:srcCompat="@drawable/ic_arrow3" />
 
             <TextView
+                android:id="@+id/lang_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:fontFamily="@font/roboto"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
@@ -196,6 +199,7 @@
             <ImageView
                 android:id="@+id/lang_ru"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 app:srcCompat="@drawable/ic_russia" />
@@ -203,9 +207,10 @@
             <ImageButton
                 android:layout_width="14dp"
                 android:layout_height="14dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginRight="8dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_arrow3" />
+                app:srcCompat="@drawable/ic_arrow2" />
         </LinearLayout>
     </LinearLayout>
 
@@ -241,7 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:layout_weight="1"
             android:fontFamily="@font/roboto"
             android:gravity="right"

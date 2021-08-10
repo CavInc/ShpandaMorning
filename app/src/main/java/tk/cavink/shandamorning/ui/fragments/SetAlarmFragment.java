@@ -107,6 +107,13 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             np2.setValue(data.getM());
             mVolume.setProgress(data.getVolume());
             //mDay = data.getDays();
+            if (data.getLang().equals("ru")) {
+                mLangTV.setText("Русский");
+            } else if (data.getLang().equals("en")) {
+                mLangTV.setText("English");
+            } else if (data.getLang().equals("de")) {
+                mLangTV.setText("German");
+            }
 
             mVibroSet.setChecked(data.isVibro());
             if (data.getRingtone() != null) {
