@@ -51,7 +51,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
 
     private String mRingtoneUri;
 
-    private boolean[] mDay = {false,false,false,false,false,false,false};
+    private String[] mDay = {"F","F","F","F","F","F","F"};
 
     public static SetAlarmFragment newInstance(int mode){
         Bundle args = new Bundle();

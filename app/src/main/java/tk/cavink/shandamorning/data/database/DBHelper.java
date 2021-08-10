@@ -37,6 +37,7 @@ public class DBHelper extends SQLiteOpenHelper{
                 "vibro_flg integer default 0, " + // 0 - нет сигнала
                 "action_flg integer default 1, " + // активный будильник
                 "lang text default 'ru'," + // язык
+                "days text," + // список дней в которые работает будильник
                 "url_ringtone text" + // рингтон
                 ")");
     }
