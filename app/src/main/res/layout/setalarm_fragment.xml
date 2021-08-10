@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/lv_spiner"
@@ -20,19 +19,18 @@
 
         <NumberPicker
             android:id="@+id/numberPicker1"
-            android:background="@drawable/left_roller"
-            android:theme="@style/MyNumberPickerTheme"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"/>
+            android:layout_height="150dp"
+            android:background="@drawable/left_roller"
+            android:theme="@style/MyNumberPickerTheme" />
 
         <NumberPicker
             android:id="@+id/numberPicker2"
-            android:background="@drawable/rigth_roller"
             style="@style/MyNumberPickerTheme"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"/>
+            android:layout_height="150dp"
+            android:background="@drawable/rigth_roller" />
     </LinearLayout>
-
 
 
     <ImageButton
@@ -47,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_sucess"/>
+        app:srcCompat="@drawable/ic_sucess" />
 
     <ImageButton
         android:id="@+id/back_bt"
@@ -61,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/success_bt"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_left_arroy"/>
+        app:srcCompat="@drawable/ic_left_arroy" />
 
     <ImageButton
         android:id="@+id/delete_bt"
@@ -75,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/success_bt"
-        app:srcCompat="@drawable/ic_cancel"/>
+        app:srcCompat="@drawable/ic_cancel" />
 
     <LinearLayout
         android:id="@+id/lv_day"
@@ -85,6 +83,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv_spiner">
@@ -153,7 +152,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_day">
+        app:layout_constraintTop_toBottomOf="@+id/select_day">
 
         <TextView
             android:layout_width="match_parent"
@@ -165,22 +164,23 @@
             android:fontFamily="@font/roboto"
             android:text="Язык"
             android:textColor="@android:color/black"
-            android:typeface="normal"/>
+            android:typeface="normal" />
+
         <LinearLayout
-            android:layout_weight="1"
-            android:background="@drawable/lang_bg"
-            android:layout_marginTop="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="9dp"
             android:layout_marginRight="24dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="9dp"
+            android:layout_weight="1"
+            android:background="@drawable/lang_bg"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:layout_width="14dp"
                 android:layout_height="14dp"
-                android:layout_marginTop="6dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_arrow3" />
 
@@ -188,9 +188,9 @@
                 android:id="@+id/lang_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/roboto"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
@@ -198,17 +198,17 @@
 
             <ImageView
                 android:id="@+id/lang_ru"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
                 app:srcCompat="@drawable/ic_russia" />
 
             <ImageButton
                 android:layout_width="14dp"
                 android:layout_height="14dp"
-                android:layout_marginTop="6dp"
                 android:layout_marginRight="8dp"
+                android:layout_marginTop="6dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_arrow2" />
         </LinearLayout>
@@ -238,7 +238,7 @@
             android:fontFamily="@font/roboto"
             android:text="Звук:"
             android:textColor="@android:color/black"
-            android:typeface="normal"/>
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/add_rington_name"
@@ -253,7 +253,7 @@
             android:textColor="#8D8D8D"
             android:textSize="13sp"
             android:typeface="normal"
-            tools:text="DonDon"/>
+            tools:text="DonDon" />
     </LinearLayout>
 
     <LinearLayout
@@ -280,7 +280,7 @@
             android:fontFamily="@font/roboto"
             android:text="Громкость:"
             android:textColor="@android:color/black"
-            android:typeface="normal"/>
+            android:typeface="normal" />
 
         <SeekBar
             android:id="@+id/volume"
@@ -289,12 +289,12 @@
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1"
-            android:min="0"
-            android:max="100"
-            android:progress="80"
             android:elevation="4dp"
+            android:max="100"
+            android:min="0"
+            android:progress="80"
             android:progressDrawable="@drawable/seekbar_draw"
-            android:thumb="@drawable/seek_traker"/>
+            android:thumb="@drawable/seek_traker" />
     </LinearLayout>
 
     <LinearLayout
@@ -321,7 +321,7 @@
             android:fontFamily="@font/roboto"
             android:text="Вибросигнал:"
             android:textColor="@android:color/black"
-            android:typeface="normal"/>
+            android:typeface="normal" />
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/vibro_set"
@@ -329,7 +329,20 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/select_day"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_spiner"
+        tools:listitem="button_day_item"></android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>

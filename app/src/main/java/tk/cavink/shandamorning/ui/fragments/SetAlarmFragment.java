@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,11 +22,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import tk.cavink.shandamorning.R;
 import tk.cavink.shandamorning.data.managers.DataManager;
 import tk.cavink.shandamorning.data.models.AlarmData;
+import tk.cavink.shandamorning.data.models.AlarmDaySetData;
 import tk.cavink.shandamorning.ui.activites.MainActivity;
+import tk.cavink.shandamorning.ui.adapters.DaysAdapter;
+import tk.cavink.shandamorning.ui.helpers.SelectDayListener;
 import tk.cavink.shandamorning.utils.ConstantManager;
 import tk.cavink.shandamorning.utils.Func;
 
@@ -32,7 +38,7 @@ import tk.cavink.shandamorning.utils.Func;
  * Created by cav on 05.08.21.
  */
 
-public class SetAlarmFragment extends Fragment implements View.OnClickListener{
+public class SetAlarmFragment extends Fragment implements View.OnClickListener,SelectDayListener{
     private static final String MODE = "MODE";
     private static final int REQUEST_RINGTONE = 234;
     private static final String TAG = "SAF";
@@ -52,6 +58,9 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
     private String mRingtoneUri;
 
     private String[] mDay = {"F","F","F","F","F","F","F"};
+
+    private DaysAdapter mDaysAdapter;
+    private RecyclerView mRecyclerView;
 
     public static SetAlarmFragment newInstance(int mode){
         Bundle args = new Bundle();
@@ -98,6 +107,18 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
         rootView.findViewById(R.id.lv_ring).setOnClickListener(this);
         rootView.findViewById(R.id.delete_bt).setOnClickListener(this);
 
+        mRecyclerView = rootView.findViewById(R.id.select_day);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        ArrayList<AlarmDaySetData> mDays = new ArrayList<>();
+
+        mDays.add(new AlarmDaySetData(1,"Пн",false));
+        mDays.add(new AlarmDaySetData(2,"Вт",false));
+        mDays.add(new AlarmDaySetData(3,"Ср",false));
+        mDays.add(new AlarmDaySetData(4,"Чт",false));
+        mDays.add(new AlarmDaySetData(5,"Пт",false));
+        mDays.add(new AlarmDaySetData(6,"Сб",false));
+        mDays.add(new AlarmDaySetData(7,"Вс",false));
+
         if (mode == ConstantManager.ADD_ALARM) {
             mLangTV.setText("Русский");
         } else {
@@ -120,7 +141,15 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
                 setRingtoneName(Uri.parse(data.getRingtone()));
                 mRingtoneUri = data.getRingtone();
             }
+            int i = 0;
+            for (Boolean l:data.getDays()) {
+                mDays.get(i).setAction(l);
+                i +=1;
+            }
         }
+
+        mDaysAdapter = new DaysAdapter(getActivity(),mDays,this);
+        mRecyclerView.setAdapter(mDaysAdapter);
 
         return rootView;
     }
@@ -136,14 +165,21 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
             boolean vibro =  mVibroSet.isChecked();
             int volume = mVolume.getProgress();
 
+            List<AlarmDaySetData> days = mDaysAdapter.getItems();
+            ArrayList<Boolean> days_out = new ArrayList<>();
+            for (AlarmDaySetData l:days) {
+                days_out.add(l.isAction());
+            }
+
             if (mode == ConstantManager.ADD_ALARM) {
-                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, null, "ru",mRingtoneUri));
+                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, days_out, "ru",mRingtoneUri));
+                mAlarmID = (int) id;
             } else {
-                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, null, "ru",mRingtoneUri));
+                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, "ru",mRingtoneUri));
             }
 
             //TODO установка будильника
-            Func.setAlarmAM(getActivity(),new AlarmData(mAlarmID,h, m, volume, vibro, true, null, "ru",mRingtoneUri),true);
+            Func.setAlarmAM(getActivity(),new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, "ru",mRingtoneUri),true);
 
             ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
@@ -153,6 +189,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
         }
         if (v.getId() == R.id.delete_bt) {
             //TODO задать вопрос ?
+            //Func.setAlarmAM(getActivity(),,false);
             mDataManager.getDBConnect().deleteAlarm(mAlarmID);
             // TODO сброс будильника
 
@@ -179,6 +216,12 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener{
         Ringtone r=RingtoneManager.getRingtone(getActivity(), uri);
         Log.d(TAG,uri.toString()+" "+r.getTitle(getActivity()));
         mRingtoneName.setText(r.getTitle(getActivity()));
+    }
+
+    @Override
+    public void onChange(int position) {
+        mDaysAdapter.getItem(position).setAction(!mDaysAdapter.getItem(position).isAction());
+        mDaysAdapter.notifyDataSetChanged();
     }
 
     // https://android.googlesource.com/platform/packages/apps/DeskClock/
