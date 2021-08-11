@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Shpanda Morning</string>
+
+    <string-array name="name_day">
+        <item>Пн</item>
+        <item>Вт</item>
+        <item>Ср</item>
+        <item>Чт</item>
+        <item>Пт</item>
+        <item>Сб</item>
+        <item>Вс</item>
+    </string-array>
 </resources>

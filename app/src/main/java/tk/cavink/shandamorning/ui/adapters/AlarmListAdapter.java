@@ -43,8 +43,28 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         AlarmData rec = mData.get(position);
         viewHolder.mHour.setText(String.format("%02d",rec.getH())+":"+String.format("%02d",rec.getM()));
         viewHolder.mSwitch.setChecked(rec.isActive());
-        viewHolder.mDay.setText("Каждый день");
+        viewHolder.mDay.setText(converDay(rec.getDays()));
+    }
 
+    private String converDay(ArrayList<Boolean> days){
+        int workDay = 0;
+        int i = 0;
+        String outDay = "";
+        String [] sd = mContext.getResources().getStringArray(R.array.name_day);
+        for (Boolean l:days){
+            if (l) {
+                workDay +=1;
+                outDay = outDay+sd[i]+",";
+            }
+            i+=1;
+        }
+        if (workDay == 0) {
+            return "Сегодня";
+        } else if (workDay == 7) {
+            return "Каждый день";
+        } else {
+            return outDay;
+        }
     }
 
     @Override
