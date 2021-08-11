@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Vibrator;
 import android.util.Log;
+import android.view.LayoutInflater;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -78,27 +79,66 @@ public class Func {
         WorkManager.getInstance().enqueue(oneTimeWorkRequest);
     }
 
+    private static int countDay(ArrayList<Boolean> daya){
+        int count = 0;
+        for (Boolean l:daya){
+            if (l) {
+                count +=1;
+            }
+        }
+        return count;
+    }
+
     public static void setAlarmAM(Context context, AlarmData date, boolean mode){
+        Log.d("FUNC","ALARM _ID: "+date.getId());
+
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent=new Intent(context, AlarmTaskReciver.class);
         intent.putExtra(ConstantManager.ALARM_ID,date.getId());
         // добавить констану ?
         PendingIntent pi= PendingIntent.getBroadcast(context,date.getId(), intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
+        //
+        ArrayList<Boolean> days = date.getDays();
+        int countDay = countDay(days);
+
         Calendar cl = Calendar.getInstance();
+        int dayInCurrent =  cl.get(Calendar.DAY_OF_WEEK);
+        Log.d("FUNC","DAY Current: "+dayInCurrent);
 
         Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY,date.getH());
         c.set(Calendar.MINUTE,date.getM());
         c.set(Calendar.SECOND,0);
 
-        // проверка по времени в текущей дате
-        if (cl.after(c)){
-            // время до то кореектируем на день вперед
-            Log.d("FNC",dateToStr("yyyy-MM-dd HH:mm:ss",cl.getTime()));
-            c.add(Calendar.DAY_OF_MONTH,1);
+        // если все дни или один день
+        if (countDay == 0 | countDay == 7) {
+            // проверка по времени в текущей дате
+            if (cl.after(c)) {
+                // время до то кореектируем на день вперед
+                Log.d("FNC", dateToStr("yyyy-MM-dd HH:mm:ss", cl.getTime()));
+                c.add(Calendar.DAY_OF_MONTH, 1);
+            }
         } else {
-            Log.d("FNC","BEFORE");
+            while (true) {
+                if (days.get(dayInCurrent == 1 ? 6 : dayInCurrent - 2)) {
+                    Log.d("FNC", "DAY=CURRENCT "+(dayInCurrent == 1 ? 6 : dayInCurrent - 2));
+                    break;
+                }
+                dayInCurrent += 1;
+                if (dayInCurrent>7) {
+                    dayInCurrent=1;
+                    c.add(Calendar.DAY_OF_MONTH,-1);
+                } else {
+                    c.add(Calendar.DAY_OF_MONTH,1);
+                }
+            }
+
+            if (cl.after(c)) {
+                // время до то кореектируем на день вперед
+                Log.d("FNC", dateToStr("yyyy-MM-dd HH:mm:ss", cl.getTime()));
+                c.add(Calendar.DAY_OF_MONTH, 1);
+            }
         }
 
         Log.d("FUNC",dateToStr("yyyy-MM-dd HH:mm:ss",c.getTime()));

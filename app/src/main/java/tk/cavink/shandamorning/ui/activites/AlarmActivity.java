@@ -21,6 +21,7 @@ import tk.cavink.shandamorning.utils.Func;
 
 public class AlarmActivity extends AppCompatActivity implements View.OnClickListener {
     private static final double MAX_VOLUME = 100;
+    private static final String TAG = "AA";
     private MediaPlayer mMediaPlayer;
 
     private DataManager mDataManager;
@@ -55,6 +56,9 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         mTime = findViewById(R.id.timeTv);
 
         int mID = getIntent().getIntExtra(ConstantManager.ALARM_ID,-1);
+
+        Log.d(TAG,"ALARM ID : "+mID);
+
         if (mID != -1){
             mAlarmData = mDataManager.getDBConnect().getAlarmOne(mID);
             mTime.setText(String.format("%02d",mAlarmData.getH())+" : "+String.format("%02d",mAlarmData.getM()));

@@ -140,8 +140,8 @@ public class DBConnect {
         AlarmData rec = null;
         open();
         Cursor cursor = database.query(DBHelper.ALARM,
-                new String[]{"id","hour","minute","volume","lang","vibro_flg","action_flg","url_ringtone"},
-                null,null,null,null,null);
+                new String[]{"id","hour","minute","volume","lang","vibro_flg","action_flg","url_ringtone","days"},
+                "id=?",new String[]{String.valueOf(id)},null,null,null);
         while (cursor.moveToNext()) {
             ArrayList<Boolean> days = strToList(cursor.getString(cursor.getColumnIndex("days")));
             rec = new AlarmData(cursor.getInt(cursor.getColumnIndex("id")),
