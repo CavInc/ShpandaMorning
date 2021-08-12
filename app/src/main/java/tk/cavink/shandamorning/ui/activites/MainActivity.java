@@ -68,4 +68,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         trz.commit();
     }
 
+    public void changeVisibleThemeButton(boolean status){
+        if (status) {
+            findViewById(R.id.theme_change_bt).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.theme_change_bt).setVisibility(View.GONE);
+        }
+    }
 }

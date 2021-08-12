@@ -54,6 +54,7 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onResume() {
         super.onResume();
+        ((MainActivity) getActivity()).changeVisibleThemeButton(true);
         updateUI();
     }
 

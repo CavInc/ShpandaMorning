@@ -16,6 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageButton
+            android:id="@+id/theme_change_bt"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bottom_circle_green_bg"
+            android:elevation="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arroy_down_white" />
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="71dp"
@@ -28,9 +40,10 @@
         <TextView
             android:id="@+id/tv_head_1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto"
             android:text="Shpanda Morning"
             android:textColor="@android:color/white"
@@ -46,7 +59,6 @@
             android:layout_height="28dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto"
             android:textColor="@android:color/white"
             android:textSize="18sp"

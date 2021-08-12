@@ -100,7 +100,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         np1.setValue(c.get(Calendar.HOUR_OF_DAY));
         np2.setValue(c.get(Calendar.MINUTE));
 
-        ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Создать будильник");
+
 
         rootView.findViewById(R.id.back_bt).setOnClickListener(this);
         rootView.findViewById(R.id.success_bt).setOnClickListener(this);
@@ -121,7 +121,9 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
 
         if (mode == ConstantManager.ADD_ALARM) {
             mLangTV.setText("Русский");
+            ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Создать будильник");
         } else {
+            ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Изменить будильник");
             AlarmData data = mDataManager.getAlarmData();
             mAlarmID = data.getId();
             np1.setValue(data.getH());
@@ -152,6 +154,12 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         mRecyclerView.setAdapter(mDaysAdapter);
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) getActivity()).changeVisibleThemeButton(false);
     }
 
     @Override
