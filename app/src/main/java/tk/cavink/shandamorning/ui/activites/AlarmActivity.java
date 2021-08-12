@@ -77,6 +77,9 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onResume() {
         super.onResume();
+        // перезапускаем будильник
+        Func.setAlarmAM(this,mAlarmData,true);
+
         if (vibrate) {
             Func.playMessage(this);
         }
