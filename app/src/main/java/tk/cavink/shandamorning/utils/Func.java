@@ -104,6 +104,10 @@ public class Func {
 
         Calendar cl = Calendar.getInstance();
         int dayInCurrent =  cl.get(Calendar.DAY_OF_WEEK);
+        dayInCurrent = (dayInCurrent == 1 ? 6 : dayInCurrent - 2);
+        int dayInAlarm = dayInCurrent;
+
+
         Log.d("FUNC","DAY Current: "+dayInCurrent);
 
         Calendar c = Calendar.getInstance();
@@ -121,16 +125,14 @@ public class Func {
             }
         } else {
             while (true) {
-                if (days.get(dayInCurrent == 1 ? 6 : dayInCurrent - 2)) {
-                    Log.d("FNC", "DAY=CURRENCT "+(dayInCurrent == 1 ? 6 : dayInCurrent - 2));
+                if (days.get(dayInAlarm)) {
+                    Log.d("FNC", "DAY=CURRENCT "+dayInCurrent+" "+dayInAlarm);
                     break;
                 }
-                dayInCurrent += 1;
-                if (dayInCurrent>7) {
-                    dayInCurrent=1;
-                    c.add(Calendar.DAY_OF_MONTH,-1);
-                } else {
-                    c.add(Calendar.DAY_OF_MONTH,1);
+                dayInAlarm += 1;
+                c.add(Calendar.DAY_OF_MONTH,1);
+                if (dayInAlarm>6) {
+                    dayInAlarm=0;
                 }
             }
 
