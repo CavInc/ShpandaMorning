@@ -35,6 +35,9 @@ public class DBConnect {
 
     // удаляем базу данных
     public void dropDB(){
+        if (database.isOpen()) {
+            database.close();
+        }
         mContext.deleteDatabase(DBHelper.DBNAME);
     }
 

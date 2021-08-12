@@ -59,13 +59,15 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
     }
 
     private void updateUI(){
-        ArrayList<AlarmData> data1 = mDataManager.getDBConnect().getAlarm(true);
-
-        if (mAdapter == null) {
-            mAdapter = new AlarmListAdapter(getActivity(),data1,this);
-            mRecyclerView.setAdapter(mAdapter);
-        } else {
-
+        try {
+            ArrayList<AlarmData> data1 = mDataManager.getDBConnect().getAlarm(true);
+            if (mAdapter == null) {
+                mAdapter = new AlarmListAdapter(getActivity(),data1,this);
+                mRecyclerView.setAdapter(mAdapter);
+            }
+        } catch (Exception e){
+            mDataManager.getDBConnect().dropDB();
+            updateUI();
         }
     }
 
