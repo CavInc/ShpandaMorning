@@ -38,6 +38,8 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+
+    <!-- для SwicthCompat -->
     <style name="MySwitch" parent="Theme.AppCompat.Light">
         <!-- активное состояние (30% прозрачности для фона) -->
         <item name="colorControlActivated">@color/bg_creen</item>
