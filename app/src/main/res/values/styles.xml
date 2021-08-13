@@ -38,4 +38,16 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="MySwitch" parent="Theme.AppCompat.Light">
+        <!-- активное состояние (30% прозрачности для фона) -->
+        <item name="colorControlActivated">@color/bg_creen</item>
+
+        <!-- неактивное состояние ползунка -->
+        <item name="colorSwitchThumbNormal">@android:color/holo_orange_dark</item>
+
+        <!-- цвет дорожки для неактивного состояния (30% прозрачности) -->
+        <item name="android:colorForeground">@android:color/darker_gray</item>
+        <item name="android:trackTint">@color/bg_creen</item>
+    </style>
+
 </resources>

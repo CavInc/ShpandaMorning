@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.theme_change_bt).setOnClickListener(this);
+
         viewFragment(new AlarmListFragment(),"ALARM_LIST");
     }
 
@@ -59,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         */
         //Func.setAlarm(c.getTime());
         //Func.setAlarmAM(this,c.getTime(),Func.ALARM_START);
+        if (view.getId() == R.id.theme_change_bt) {
+
+        }
     }
 
     // устанавливаем фрагмент в контейнер

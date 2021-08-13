@@ -19,7 +19,7 @@
 
         <NumberPicker
             android:id="@+id/numberPicker1"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="150dp"
             android:background="@drawable/left_roller"
             android:theme="@style/MyNumberPickerTheme" />
@@ -27,8 +27,9 @@
         <NumberPicker
             android:id="@+id/numberPicker2"
             style="@style/MyNumberPickerTheme"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="150dp"
+            android:theme="@style/MyNumberPickerTheme"
             android:background="@drawable/rigth_roller" />
     </LinearLayout>
 
@@ -74,71 +75,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/success_bt"
         app:srcCompat="@drawable/ic_cancel" />
-
-    <LinearLayout
-        android:id="@+id/lv_day"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_spiner">
-
-        <Button
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            android:background="@drawable/day_bt"
-            android:elevation="8dp"
-            android:text="Пн"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <Button
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            android:background="@drawable/day_bt"
-            android:text="Вт"
-            android:textSize="14sp" />
-
-        <Button
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            android:background="@drawable/day_bt"
-            android:text="Ср"
-            android:textSize="14sp" />
-
-        <Button
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            android:background="@drawable/day_bt"
-            android:text="Чт"
-            android:textSize="14sp" />
-
-        <Button
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            android:background="@drawable/day_bt"
-            android:text="Пт"
-            android:textSize="14sp" />
-
-        <Button
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            android:background="@drawable/day_bt"
-            android:text="Сб"
-            android:textSize="14sp" />
-
-        <Button
-            android:layout_width="32dp"
-            android:layout_height="40dp"
-            android:background="@drawable/day_bt"
-            android:text="Вс"
-            android:textSize="14sp" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lv_lang"
