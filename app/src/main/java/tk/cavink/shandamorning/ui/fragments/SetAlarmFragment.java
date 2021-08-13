@@ -20,6 +20,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.rm.rmswitch.RMSwitch;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -46,7 +48,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
 
     private NumberPicker np1;
     private NumberPicker np2;
-    private SwitchCompat mVibroSet;
+    private RMSwitch mVibroSet;
     private SeekBar mVolume;
 
     private TextView mLangTV;

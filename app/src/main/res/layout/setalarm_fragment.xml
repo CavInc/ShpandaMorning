@@ -259,10 +259,13 @@
             android:textColor="@android:color/black"
             android:typeface="normal" />
 
-        <android.support.v7.widget.SwitchCompat
+        <com.rm.rmswitch.RMSwitch
             android:id="@+id/vibro_set"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:forceAspectRatio="false"
+            app:enabled="true"
+            app:switchDesign="large"
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1" />
