@@ -43,13 +43,10 @@
         android:id="@+id/item_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="24dp"
-        app:track="@drawable/switch_track"
+        android:layout_marginEnd="24dp"
         android:thumb="@drawable/switch_thumb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/item_time"
-        app:layout_constraintTop_toBottomOf="@+id/item_period"/>
+        app:layout_constraintTop_toBottomOf="@+id/item_period"
+        app:track="@drawable/switch_track" />
 
 </android.support.constraint.ConstraintLayout>
