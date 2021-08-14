@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -80,6 +82,10 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         mAlarmStop.setOnTouchListener(this);
 
         findViewById(R.id.long_10).setOnClickListener(this);
+
+        final Animation animRotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        animRotate.setRepeatCount(Animation.INFINITE);
+        mAlarmStop.startAnimation(animRotate);
     }
 
     @Override
@@ -184,6 +190,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
                     case MotionEvent.ACTION_DOWN:
                         Log.d(TAG,"EVENT DOWN");
                         storeX = v.getX();
+                        v.clearAnimation();
                         break;
                 }
                 break;
