@@ -5,9 +5,11 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -19,7 +21,7 @@ import tk.cavink.shandamorning.data.models.AlarmData;
 import tk.cavink.shandamorning.utils.ConstantManager;
 import tk.cavink.shandamorning.utils.Func;
 
-public class AlarmActivity extends AppCompatActivity implements View.OnClickListener {
+public class AlarmActivity extends AppCompatActivity implements View.OnClickListener,View.OnTouchListener {
     private static final double MAX_VOLUME = 100;
     private static final String TAG = "AA";
     private MediaPlayer mMediaPlayer;
@@ -35,6 +37,9 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     private AlarmData mAlarmData;
     private TextView mTime;
     private int alarm_volume;
+
+    private ImageButton mAlarmStop; // кнопа гашения
+    private float storeX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +75,10 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         mMediaPlayer = new MediaPlayer();
         mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
-        findViewById(R.id.stop_alarm).setOnClickListener(this);
+        mAlarmStop =  findViewById(R.id.stop_alarm);
+        //mAlarmStop.setOnClickListener(this);
+        mAlarmStop.setOnTouchListener(this);
+
         findViewById(R.id.long_10).setOnClickListener(this);
     }
 
@@ -156,5 +164,31 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
             Func.setAlarmAM(this,mAlarmData,true);
             finish();
         }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch(v.getId()){
+            case R.id.stop_alarm:
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_MOVE:
+                        v.setX(event.getRawX() - v.getWidth()/2);
+                        //v.setY(event.getRawY() - v.getHeight());
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.d(TAG,"EVENT UP");
+                        v.setX(storeX);
+                        stopMusic();
+                        finish();
+                        break;
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d(TAG,"EVENT DOWN");
+                        storeX = v.getX();
+                        break;
+                }
+                break;
+        }
+
+        return true;
     }
 }
