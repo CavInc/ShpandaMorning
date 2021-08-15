@@ -31,9 +31,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     private DataManager mDataManager;
 
     private String urlSound;
-    private int alarm_id;
-    private int alarm_size;
-    private int alarm_type;
+
     private boolean vibrate;
 
     private AlarmData mAlarmData;
@@ -84,6 +82,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.long_10).setOnClickListener(this);
 
         final Animation animRotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
+
         animRotate.setRepeatCount(Animation.INFINITE);
         mAlarmStop.startAnimation(animRotate);
     }
