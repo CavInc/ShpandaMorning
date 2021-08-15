@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.NumberPicker;
 
 import java.util.Calendar;
@@ -24,8 +25,9 @@ import tk.cavink.shandamorning.utils.Func;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_READ_PERMISSION = 654;
-    private NumberPicker np1;
-    private NumberPicker np2;
+
+    private ImageButton mThemeButton;
+    private boolean useTheme = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.theme_change_bt).setOnClickListener(this);
+        mThemeButton =  findViewById(R.id.theme_change_bt);
+        mThemeButton.setOnClickListener(this);
 
         viewFragment(new AlarmListFragment(),"ALARM_LIST");
     }
@@ -63,7 +66,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Func.setAlarm(c.getTime());
         //Func.setAlarmAM(this,c.getTime(),Func.ALARM_START);
         if (view.getId() == R.id.theme_change_bt) {
-
+            if (useTheme) {
+                mThemeButton.setImageResource(R.drawable.ic_arroy_up_white);
+            } else {
+                mThemeButton.setImageResource(R.drawable.ic_arroy_down_white);
+            }
+            useTheme = !useTheme;
         }
     }
 
@@ -76,9 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void changeVisibleThemeButton(boolean status){
         if (status) {
-            findViewById(R.id.theme_change_bt).setVisibility(View.VISIBLE);
+            mThemeButton.setVisibility(View.VISIBLE);
         } else {
-            findViewById(R.id.theme_change_bt).setVisibility(View.GONE);
+            mThemeButton.setVisibility(View.GONE);
         }
     }
 }
