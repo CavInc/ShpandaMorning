@@ -3,12 +3,15 @@ package tk.cavink.shandamorning.ui.activites;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,6 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.ui.dialogs.ThemeDialogs;
 import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
 import tk.cavink.shandamorning.ui.fragments.SetAlarmFragment;
 import tk.cavink.shandamorning.utils.Func;
@@ -68,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view.getId() == R.id.theme_change_bt) {
             if (useTheme) {
                 mThemeButton.setImageResource(R.drawable.ic_arroy_up_white);
+                ThemeDialogs dialogs = new ThemeDialogs();
+                dialogs.show(getSupportFragmentManager(),"THEME_DIALOG");
+                //dialogs.getDialog().getWindow().setGravity(Gravity.TOP | Gravity.LEFT | Gravity.RIGHT);
             } else {
                 mThemeButton.setImageResource(R.drawable.ic_arroy_down_white);
             }

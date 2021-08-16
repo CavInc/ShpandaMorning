@@ -8,4 +8,8 @@
     <color name="bg_bej">#F5F0E2</color>
     <color name="bg_creen">#89D38B </color>
 
+    <color name="bg_violet">#B178FF</color>
+    <color name="bg_blue">#007DFE</color>
+    <color name="bg_gray">#656565</color>
+
 </resources>
