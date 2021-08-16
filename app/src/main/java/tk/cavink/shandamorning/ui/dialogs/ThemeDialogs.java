@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.ui.activites.MainActivity;
 import tk.cavink.shandamorning.utils.ConstantManager;
 
 /**
@@ -27,7 +28,7 @@ public class ThemeDialogs extends DialogFragment implements View.OnClickListener
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
+        mThemeDialogListener = (MainActivity) getActivity();
     }
 
     @Override
@@ -81,19 +82,6 @@ public class ThemeDialogs extends DialogFragment implements View.OnClickListener
         dismiss();
     }
 
-    /*
-
-    @NonNull
-    @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View v = LayoutInflater.from(getActivity()).inflate(R.layout.theme_dialog,null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setView(v);
-        AlertDialog dialog = builder.create();
-        dialog.getWindow().setGravity(Gravity.TOP | Gravity.LEFT | Gravity.RIGHT);
-        return dialog;
-    }
-*/
 
     public interface ThemeDialogListener {
         void onSelect(int theme);

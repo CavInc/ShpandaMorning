@@ -27,7 +27,7 @@ import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
 import tk.cavink.shandamorning.ui.fragments.SetAlarmFragment;
 import tk.cavink.shandamorning.utils.Func;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,ThemeDialogs.ThemeDialogListener {
     private static final int REQUEST_READ_PERMISSION = 654;
 
     private ImageButton mThemeButton;
@@ -95,5 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             mThemeButton.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void onSelect(int theme) {
+
     }
 }
