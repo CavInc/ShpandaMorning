@@ -261,11 +261,14 @@
 
         <com.rm.rmswitch.RMSwitch
             android:id="@+id/vibro_set"
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             app:forceAspectRatio="false"
             app:enabled="true"
             app:switchDesign="large"
+            app:switchToggleCheckedColor="@android:color/white"
+            app:switchBkgCheckedColor="@color/bg_creen"
+            app:switchBkgNotCheckedColor="@color/bg_bej"
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1" />
