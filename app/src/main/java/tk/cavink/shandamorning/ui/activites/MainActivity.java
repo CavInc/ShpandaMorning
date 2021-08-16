@@ -3,29 +3,24 @@ package tk.cavink.shandamorning.ui.activites;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.DialogFragment;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
+
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.NumberPicker;
 
-import java.util.Calendar;
-import java.util.Date;
 
 import tk.cavink.shandamorning.R;
 import tk.cavink.shandamorning.ui.dialogs.ThemeDialogs;
 import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
-import tk.cavink.shandamorning.ui.fragments.SetAlarmFragment;
-import tk.cavink.shandamorning.utils.Func;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,ThemeDialogs.ThemeDialogListener {
     private static final int REQUEST_READ_PERMISSION = 654;
@@ -58,17 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        /*
-        int h = np1.getValue();
-        int m = np2.getValue();
-
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.HOUR_OF_DAY,h);
-        c.set(Calendar.MINUTE,m);
-        Log.d("MA",Func.dateToStr("yyyy-MM-dd HH:mm",c.getTime()));
-        */
-        //Func.setAlarm(c.getTime());
-        //Func.setAlarmAM(this,c.getTime(),Func.ALARM_START);
         if (view.getId() == R.id.theme_change_bt) {
             if (useTheme) {
                 mThemeButton.setImageResource(R.drawable.ic_arroy_up_white);
@@ -99,6 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onSelect(int theme) {
-
+        //TODO установка темы
     }
 }
