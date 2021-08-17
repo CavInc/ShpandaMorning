@@ -62,6 +62,9 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
     private void updateUI(){
         try {
             ArrayList<AlarmData> data1 = mDataManager.getDBConnect().getAlarm(true);
+            if (data1.size() != 0 ){
+                getActivity().findViewById(R.id.start_message_lv).setVisibility(View.GONE);
+            }
             if (mAdapter == null) {
                 mAdapter = new AlarmListAdapter(getActivity(),data1,this);
                 mRecyclerView.setAdapter(mAdapter);
