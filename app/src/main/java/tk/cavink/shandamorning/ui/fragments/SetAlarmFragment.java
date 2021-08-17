@@ -206,8 +206,9 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
                 mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, lang,mRingtoneUri));
             }
 
-            //TODO установка будильника
-            Func.setAlarmAM(getActivity(),new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, lang,mRingtoneUri),true);
+            if (mDataManager.getDBConnect().getAlarmOne(mAlarmID).isActive()) {
+                Func.setAlarmAM(getActivity(), new AlarmData(mAlarmID, h, m, volume, vibro, true, days_out, lang, mRingtoneUri), true);
+            }
 
             ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
