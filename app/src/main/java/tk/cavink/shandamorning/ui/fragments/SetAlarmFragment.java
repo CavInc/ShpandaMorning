@@ -13,8 +13,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -40,7 +43,7 @@ import tk.cavink.shandamorning.utils.Func;
  * Created by cav on 05.08.21.
  */
 
-public class SetAlarmFragment extends Fragment implements View.OnClickListener,SelectDayListener{
+public class SetAlarmFragment extends Fragment implements View.OnClickListener,SelectDayListener,View.OnTouchListener{
     private static final String MODE = "MODE";
     private static final int REQUEST_RINGTONE = 234;
     private static final String TAG = "SAF";
@@ -52,6 +55,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
     private SeekBar mVolume;
 
     private TextView mLangTV;
+    private ImageView mLangFlag;
     private TextView mRingtoneName;
 
     private int mode = ConstantManager.ADD_ALARM;
@@ -90,6 +94,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         mLangTV = rootView.findViewById(R.id.lang_tv);
         mVolume = rootView.findViewById(R.id.volume);
         mRingtoneName = rootView.findViewById(R.id.add_rington_name);
+        mLangFlag = rootView.findViewById(R.id.lang_flag);
 
         np1 = rootView.findViewById(R.id.numberPicker1);
         np1.setMinValue(0);
@@ -122,7 +127,8 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         mDays.add(new AlarmDaySetData(7,"Вс",false));
 
         if (mode == ConstantManager.ADD_ALARM) {
-            mLangTV.setText("Русский");
+            mLangTV.setText(R.string.str_lang_ru);
+            mLangFlag.setImageResource(R.drawable.ic_russia);
             ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Создать будильник");
         } else {
             ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Изменить будильник");
@@ -133,11 +139,14 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
             mVolume.setProgress(data.getVolume());
             //mDay = data.getDays();
             if (data.getLang().equals("ru")) {
-                mLangTV.setText("Русский");
+                mLangTV.setText(R.string.str_lang_ru);
+                mLangFlag.setImageResource(R.drawable.ic_russia);
             } else if (data.getLang().equals("en")) {
-                mLangTV.setText("English");
+                mLangFlag.setImageResource(R.drawable.ic_english);
+                mLangTV.setText(R.string.str_lang_en);
             } else if (data.getLang().equals("de")) {
-                mLangTV.setText("German");
+                mLangFlag.setImageResource(R.drawable.ic_german);
+                mLangTV.setText(R.string.str_lang_de);
             }
 
             mVibroSet.setChecked(data.isVibro());
@@ -154,6 +163,8 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
 
         mDaysAdapter = new DaysAdapter(getActivity(),mDays,this);
         mRecyclerView.setAdapter(mDaysAdapter);
+
+        rootView.findViewById(R.id.lang_panel).setOnTouchListener(this);
 
         return rootView;
     }
@@ -181,15 +192,25 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
                 days_out.add(l.isAction());
             }
 
-            if (mode == ConstantManager.ADD_ALARM) {
-                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, days_out, "ru",mRingtoneUri));
-                mAlarmID = (int) id;
+            String lang = "";
+            if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_ru))) {
+                lang = "ru";
+            } else if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_en))) {
+                lang = "en";
             } else {
-                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, "ru",mRingtoneUri));
+                lang = "de";
             }
 
-            //TODO установка будильника
-            Func.setAlarmAM(getActivity(),new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, "ru",mRingtoneUri),true);
+            if (mode == ConstantManager.ADD_ALARM) {
+                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, days_out, lang,mRingtoneUri));
+                mAlarmID = (int) id;
+            } else {
+                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, lang,mRingtoneUri));
+            }
+
+            if (mDataManager.getDBConnect().getAlarmOne(mAlarmID).isActive()) {
+                Func.setAlarmAM(getActivity(), new AlarmData(mAlarmID, h, m, volume, vibro, true, days_out, lang, mRingtoneUri), true);
+            }
 
             ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
@@ -232,6 +253,39 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
     public void onChange(int position) {
         mDaysAdapter.getItem(position).setAction(!mDaysAdapter.getItem(position).isAction());
         mDaysAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (v.getId()){
+            case R.id.lang_panel:
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_UP:
+                        Log.d(TAG,"EVENT UP");
+                        Log.d(TAG,mLangTV.getText().toString());
+                        if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_ru))) {
+                            mLangTV.setText(R.string.str_lang_en);
+                            mLangFlag.setImageResource(R.drawable.ic_english);
+                        } else if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_en))){
+                            mLangTV.setText(R.string.str_lang_de);
+                            mLangFlag.setImageResource(R.drawable.ic_german);
+                        } else {
+                            mLangTV.setText(R.string.str_lang_ru);
+                            mLangFlag.setImageResource(R.drawable.ic_russia);
+                        }
+
+                        break;
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d(TAG,"EVENT DOWN");
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        float x = event.getRawX();
+
+                        break;
+                }
+                break;
+        }
+        return true;
     }
 
     // https://android.googlesource.com/platform/packages/apps/DeskClock/

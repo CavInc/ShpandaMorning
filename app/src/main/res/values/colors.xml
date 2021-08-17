@@ -9,4 +9,8 @@
     <color name="bg_creen">#89D38B </color>
     <color name="bg_disable_switch">#E9E3D6</color>
 
+    <color name="bg_violet">#B178FF</color>
+    <color name="bg_blue">#007DFE</color>
+    <color name="bg_gray">#656565</color>
+
 </resources>

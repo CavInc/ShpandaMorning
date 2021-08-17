@@ -20,11 +20,7 @@ import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import androidx.work.Constraints;
-import androidx.work.NetworkType;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
-import androidx.work.WorkerParameters;
+
 import tk.cavink.shandamorning.data.models.AlarmData;
 import tk.cavink.shandamorning.services.AlarmTaskReciver;
 import tk.cavink.shandamorning.ui.activites.AlarmActivity;
@@ -54,6 +50,7 @@ public class Func {
     }
 
 
+    /*
     public static void setAlarm(Date date){
         Log.d("FUNC",dateToStr("yyyy-MM-dd HH:mm:ss",date));
 
@@ -78,6 +75,7 @@ public class Func {
 
         WorkManager.getInstance().enqueue(oneTimeWorkRequest);
     }
+    */
 
     private static int countDay(ArrayList<Boolean> daya){
         int count = 0;

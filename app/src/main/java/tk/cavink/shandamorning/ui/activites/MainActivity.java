@@ -3,29 +3,32 @@ package tk.cavink.shandamorning.ui.activites;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.NumberPicker;
+import android.widget.ImageButton;
 
-import java.util.Calendar;
-import java.util.Date;
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.data.managers.DataManager;
+import tk.cavink.shandamorning.ui.dialogs.ThemeDialogs;
 import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
-import tk.cavink.shandamorning.ui.fragments.SetAlarmFragment;
-import tk.cavink.shandamorning.utils.Func;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,ThemeDialogs.ThemeDialogListener {
     private static final int REQUEST_READ_PERMISSION = 654;
-    private NumberPicker np1;
-    private NumberPicker np2;
+
+    private DataManager mDataManager;
+    private ImageButton mThemeButton;
+    private boolean useTheme = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+        mDataManager = DataManager.getInstance();
 
-        findViewById(R.id.theme_change_bt).setOnClickListener(this);
+        mThemeButton =  findViewById(R.id.theme_change_bt);
+        mThemeButton.setOnClickListener(this);
 
         viewFragment(new AlarmListFragment(),"ALARM_LIST");
     }
@@ -51,19 +56,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        /*
-        int h = np1.getValue();
-        int m = np2.getValue();
-
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.HOUR_OF_DAY,h);
-        c.set(Calendar.MINUTE,m);
-        Log.d("MA",Func.dateToStr("yyyy-MM-dd HH:mm",c.getTime()));
-        */
-        //Func.setAlarm(c.getTime());
-        //Func.setAlarmAM(this,c.getTime(),Func.ALARM_START);
         if (view.getId() == R.id.theme_change_bt) {
-
+            if (useTheme) {
+                mThemeButton.setImageResource(R.drawable.ic_arroy_up_white);
+                ThemeDialogs dialogs = new ThemeDialogs();
+                dialogs.show(getSupportFragmentManager(),"THEME_DIALOG");
+                //dialogs.getDialog().getWindow().setGravity(Gravity.TOP | Gravity.LEFT | Gravity.RIGHT);
+            } else {
+                mThemeButton.setImageResource(R.drawable.ic_arroy_down_white);
+            }
+            useTheme = !useTheme;
         }
     }
 
@@ -76,9 +78,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void changeVisibleThemeButton(boolean status){
         if (status) {
-            findViewById(R.id.theme_change_bt).setVisibility(View.VISIBLE);
+            mThemeButton.setVisibility(View.VISIBLE);
         } else {
-            findViewById(R.id.theme_change_bt).setVisibility(View.GONE);
+            mThemeButton.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void onSelect(int theme) {
+        //TODO установка темы
     }
 }
