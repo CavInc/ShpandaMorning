@@ -190,15 +190,24 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
                 days_out.add(l.isAction());
             }
 
+            String lang = "";
+            if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_ru))) {
+                lang = "ru";
+            } else if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_en))) {
+                lang = "en";
+            } else {
+                lang = "de";
+            }
+
             if (mode == ConstantManager.ADD_ALARM) {
-                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, days_out, "ru",mRingtoneUri));
+                long id = mDataManager.getDBConnect().addAlarm(new AlarmData(h, m, volume, vibro, true, days_out, lang,mRingtoneUri));
                 mAlarmID = (int) id;
             } else {
-                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, "ru",mRingtoneUri));
+                mDataManager.getDBConnect().editAlarm(new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, lang,mRingtoneUri));
             }
 
             //TODO установка будильника
-            Func.setAlarmAM(getActivity(),new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, "ru",mRingtoneUri),true);
+            Func.setAlarmAM(getActivity(),new AlarmData(mAlarmID,h, m, volume, vibro, true, days_out, lang,mRingtoneUri),true);
 
             ((MainActivity) getActivity()).viewFragment(new AlarmListFragment(),"ALARM_LIST");
         }
