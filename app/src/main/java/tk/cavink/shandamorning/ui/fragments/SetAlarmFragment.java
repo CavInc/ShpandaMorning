@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -51,6 +53,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
     private SeekBar mVolume;
 
     private TextView mLangTV;
+    private ImageView mLangFlag;
     private TextView mRingtoneName;
 
     private int mode = ConstantManager.ADD_ALARM;
@@ -89,6 +92,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         mLangTV = rootView.findViewById(R.id.lang_tv);
         mVolume = rootView.findViewById(R.id.volume);
         mRingtoneName = rootView.findViewById(R.id.add_rington_name);
+        mLangFlag = rootView.findViewById(R.id.lang_flag);
 
         np1 = rootView.findViewById(R.id.numberPicker1);
         np1.setMinValue(0);
@@ -121,7 +125,8 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         mDays.add(new AlarmDaySetData(7,"Вс",false));
 
         if (mode == ConstantManager.ADD_ALARM) {
-            mLangTV.setText("Русский");
+            mLangTV.setText(R.string.str_lang_ru);
+            mLangFlag.setImageResource(R.drawable.ic_russia);
             ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Создать будильник");
         } else {
             ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Изменить будильник");
@@ -132,11 +137,14 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
             mVolume.setProgress(data.getVolume());
             //mDay = data.getDays();
             if (data.getLang().equals("ru")) {
-                mLangTV.setText("Русский");
+                mLangTV.setText(R.string.str_lang_ru);
+                mLangFlag.setImageResource(R.drawable.ic_russia);
             } else if (data.getLang().equals("en")) {
-                mLangTV.setText("English");
+                mLangFlag.setImageResource(R.drawable.ic_english);
+                mLangTV.setText(R.string.str_lang_en);
             } else if (data.getLang().equals("de")) {
-                mLangTV.setText("German");
+                mLangFlag.setImageResource(R.drawable.ic_german);
+                mLangTV.setText(R.string.str_lang_de);
             }
 
             mVibroSet.setChecked(data.isVibro());
@@ -242,11 +250,25 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
                 switch (event.getAction()){
                     case MotionEvent.ACTION_UP:
                         Log.d(TAG,"EVENT UP");
+                        Log.d(TAG,mLangTV.getText().toString());
+                        if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_ru))) {
+                            mLangTV.setText(R.string.str_lang_en);
+                            mLangFlag.setImageResource(R.drawable.ic_english);
+                        } else if (mLangTV.getText().equals(getResources().getString(R.string.str_lang_en))){
+                            mLangTV.setText(R.string.str_lang_de);
+                            mLangFlag.setImageResource(R.drawable.ic_german);
+                        } else {
+                            mLangTV.setText(R.string.str_lang_ru);
+                            mLangFlag.setImageResource(R.drawable.ic_russia);
+                        }
+
                         break;
                     case MotionEvent.ACTION_DOWN:
                         Log.d(TAG,"EVENT DOWN");
                         break;
                     case MotionEvent.ACTION_MOVE:
+                        float x = event.getRawX();
+
                         break;
                 }
                 break;

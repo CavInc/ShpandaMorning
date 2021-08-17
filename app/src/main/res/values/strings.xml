@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Shpanda Morning</string>
+    <string name="str_lang_ru">Русский</string>
+    <string name="str_lang_en">English</string>
+    <string name="str_lang_de">German</string>
 
     <string-array name="name_day">
         <item>Пн</item>

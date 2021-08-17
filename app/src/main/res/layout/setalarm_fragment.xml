@@ -134,7 +134,7 @@
                 tools:text="русский" />
 
             <ImageView
-                android:id="@+id/lang_ru"
+                android:id="@+id/lang_flag"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginLeft="8dp"
