@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
@@ -38,7 +39,7 @@ import tk.cavink.shandamorning.utils.Func;
  * Created by cav on 05.08.21.
  */
 
-public class SetAlarmFragment extends Fragment implements View.OnClickListener,SelectDayListener{
+public class SetAlarmFragment extends Fragment implements View.OnClickListener,SelectDayListener,View.OnTouchListener{
     private static final String MODE = "MODE";
     private static final int REQUEST_RINGTONE = 234;
     private static final String TAG = "SAF";
@@ -153,6 +154,8 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         mDaysAdapter = new DaysAdapter(getActivity(),mDays,this);
         mRecyclerView.setAdapter(mDaysAdapter);
 
+        rootView.findViewById(R.id.lang_panel).setOnTouchListener(this);
+
         return rootView;
     }
 
@@ -230,6 +233,25 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
     public void onChange(int position) {
         mDaysAdapter.getItem(position).setAction(!mDaysAdapter.getItem(position).isAction());
         mDaysAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (v.getId()){
+            case R.id.lang_panel:
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_UP:
+                        Log.d(TAG,"EVENT UP");
+                        break;
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d(TAG,"EVENT DOWN");
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        break;
+                }
+                break;
+        }
+        return true;
     }
 
     // https://android.googlesource.com/platform/packages/apps/DeskClock/
