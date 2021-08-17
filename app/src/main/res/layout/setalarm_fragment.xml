@@ -272,6 +272,7 @@
             app:switchBkgNotCheckedColor="@color/bg_bej"
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
+            android:layout_marginRight="14dp"
             android:layout_weight="1" />
     </LinearLayout>
 
