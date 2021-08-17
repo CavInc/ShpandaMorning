@@ -8,6 +8,12 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!-- - для HTC и некоторых других: -->
+    <uses-permission android:name="android.permission.QUICKBOOT_POWERON"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -32,6 +38,17 @@
             android:name=".services.AlarmTaskReciver"
             android:enabled="true"
             android:exported="true">
+        </receiver>
+        <receiver android:name=".services.AlarmBootReciver"
+            android:exported="true"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.REBOOT"/> <!-- для Xiaomi -->
+            </intent-filter>
         </receiver>
     </application>
 

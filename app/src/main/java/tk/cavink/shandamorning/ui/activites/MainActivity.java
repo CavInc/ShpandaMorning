@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.data.managers.DataManager;
 import tk.cavink.shandamorning.ui.dialogs.ThemeDialogs;
 import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
 
@@ -25,6 +26,7 @@ import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,ThemeDialogs.ThemeDialogListener {
     private static final int REQUEST_READ_PERMISSION = 654;
 
+    private DataManager mDataManager;
     private ImageButton mThemeButton;
     private boolean useTheme = true;
 
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+        mDataManager = DataManager.getInstance();
 
         mThemeButton =  findViewById(R.id.theme_change_bt);
         mThemeButton.setOnClickListener(this);
