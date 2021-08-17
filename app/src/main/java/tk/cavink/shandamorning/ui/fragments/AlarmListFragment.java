@@ -20,6 +20,7 @@ import tk.cavink.shandamorning.ui.activites.MainActivity;
 import tk.cavink.shandamorning.ui.adapters.AlarmListAdapter;
 import tk.cavink.shandamorning.ui.helpers.SelectAlarmListener;
 import tk.cavink.shandamorning.utils.ConstantManager;
+import tk.cavink.shandamorning.utils.Func;
 
 /**
  * Created by cav on 05.08.21.
@@ -86,7 +87,9 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
 
     @Override
     public void onChangeAction(int position, boolean action) {
-        //TODO добавить сюда отключение будильника
+
+        AlarmData data = mAdapter.getItem(position);
+        Func.setAlarmAM(getActivity(),data,action);
 
         mDataManager.getDBConnect().setActiveAlarm(mAdapter.getItem(position).getId(),action);
     }
