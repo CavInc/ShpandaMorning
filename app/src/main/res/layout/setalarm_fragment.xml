@@ -97,10 +97,8 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:text="Язык"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            style="@style/SetAlarmText"
+            android:text="Язык"/>
 
         <LinearLayout
             android:id="@+id/lang_panel"
@@ -172,10 +170,8 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:text="Звук:"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            style="@style/SetAlarmText"
+            android:text="Звук:" />
 
         <TextView
             android:id="@+id/add_rington_name"
@@ -214,10 +210,8 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
             android:layout_weight="2"
-            android:fontFamily="@font/roboto"
-            android:text="Громкость:"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            style="@style/SetAlarmText"
+            android:text="Громкость:" />
 
         <SeekBar
             android:id="@+id/volume"
@@ -254,11 +248,9 @@
             android:layout_marginBottom="14dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
+            style="@style/SetAlarmText"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:text="Вибросигнал:"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            android:text="Вибросигнал:"/>
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/vibro_set"
