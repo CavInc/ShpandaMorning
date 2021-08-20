@@ -4,13 +4,15 @@
     android:insetLeft="4dp"
     android:insetRight="4dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <selector>
+    <selector >
         <item>
             <shape android:shape="rectangle">
-                <gradient android:startColor="#92DA94"
-                    android:endColor="#5FB462"/>
-                <corners android:radius="10dp"/>
-                <stroke android:width="2px"
+                <gradient
+                    android:startColor="#FFFFFF"
+                    android:endColor="#FCF4E9"
+                    android:angle="0"/>
+                <corners android:radius="25px"></corners>
+                <stroke android:width="2dp"
                     android:color="@color/bg_creen"/>
             </shape>
         </item>
