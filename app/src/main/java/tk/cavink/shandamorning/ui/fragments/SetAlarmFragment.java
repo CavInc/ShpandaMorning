@@ -97,9 +97,21 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         np1 = rootView.findViewById(R.id.numberPicker1);
         np1.setMinValue(0);
         np1.setMaxValue(23);
+        np1.setFormatter(new NumberPicker.Formatter() {
+            @Override
+            public String format(int i) {
+                return String.format("%02d",i);
+            }
+        });
         np2 = rootView.findViewById(R.id.numberPicker2);
         np2.setMinValue(0);
         np2.setMaxValue(59);
+        np2.setFormatter(new NumberPicker.Formatter() {
+            @Override
+            public String format(int i) {
+                return String.format("%02d",i);
+            }
+        });
 
         Calendar c = Calendar.getInstance();
         np1.setValue(c.get(Calendar.HOUR_OF_DAY));
