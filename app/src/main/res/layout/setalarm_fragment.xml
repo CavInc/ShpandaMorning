@@ -23,6 +23,10 @@
             android:layout_width="110dp"
             android:layout_height="128dp"
             android:theme="@style/MyNumberPickerTheme" />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="128dp"
+            android:background="@color/bg_creen"/>
 
         <NumberPicker
             android:id="@+id/numberPicker2"
