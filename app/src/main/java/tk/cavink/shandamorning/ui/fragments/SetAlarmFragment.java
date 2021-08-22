@@ -48,7 +48,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
     private DataManager mDataManager;
 
     private com.shawnlin.numberpicker.NumberPicker np1;
-    private NumberPicker np2;
+    private com.shawnlin.numberpicker.NumberPicker np2;
     private SwitchCompat mVibroSet;
     private SeekBar mVolume;
 
@@ -108,12 +108,14 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         np2 = rootView.findViewById(R.id.numberPicker2);
         np2.setMinValue(0);
         np2.setMaxValue(59);
+        /*
         np2.setFormatter(new NumberPicker.Formatter() {
             @Override
             public String format(int i) {
                 return String.format("%02d",i);
             }
         });
+        */
 
         Calendar c = Calendar.getInstance();
         np1.setValue(c.get(Calendar.HOUR_OF_DAY));

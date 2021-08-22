@@ -23,8 +23,10 @@
             android:id="@+id/numberPicker1"
             android:layout_width="110dp"
             android:layout_height="128dp"
+            app:np_dividerDistance="0dp"
             app:np_dividerThickness="0dp"
-            app:np_selectedTextSize="35sp"
+            app:np_lineSpacingMultiplier="0.5"
+            app:np_selectedTextSize="30sp"
             app:np_selectedTypeface="@string/roboto_medium"
             app:np_textSize="20sp"
             app:np_textColor="#89D38B"
@@ -37,13 +39,20 @@
             android:layout_height="128dp"
             android:background="@color/bg_creen"/>
 
-        <NumberPicker
+        <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/numberPicker2"
-            style="@style/MyNumberPickerTheme"
             android:layout_width="110dp"
             android:layout_height="128dp"
-            android:theme="@style/MyNumberPickerTheme"
-             />
+            app:np_dividerDistance="0dp"
+            app:np_dividerThickness="0dp"
+            app:np_lineSpacingMultiplier="0.5"
+            app:np_selectedTextSize="30sp"
+            app:np_selectedTypeface="@string/roboto_medium"
+            app:np_textSize="20sp"
+            app:np_textColor="#89D38B"
+            app:np_typeface="@string/roboto_ligth"
+            app:np_formatter="@string/number_picker_formatter"
+            app:np_selectedTextColor="@color/bg_creen"/>
     </LinearLayout>
 
 
