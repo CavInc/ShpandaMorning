@@ -47,7 +47,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
     private static final String TAG = "SAF";
     private DataManager mDataManager;
 
-    private NumberPicker np1;
+    private com.shawnlin.numberpicker.NumberPicker np1;
     private NumberPicker np2;
     private SwitchCompat mVibroSet;
     private SeekBar mVolume;
@@ -97,12 +97,14 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
         np1 = rootView.findViewById(R.id.numberPicker1);
         np1.setMinValue(0);
         np1.setMaxValue(23);
+        /*
         np1.setFormatter(new NumberPicker.Formatter() {
             @Override
             public String format(int i) {
                 return String.format("%02d",i);
             }
         });
+        */
         np2 = rootView.findViewById(R.id.numberPicker2);
         np2.setMinValue(0);
         np2.setMaxValue(59);
