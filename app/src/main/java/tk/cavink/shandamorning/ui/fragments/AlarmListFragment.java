@@ -6,12 +6,17 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import tk.cavink.shandamorning.R;
 import tk.cavink.shandamorning.data.managers.DataManager;
@@ -31,6 +36,8 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
     private RecyclerView mRecyclerView;
     private AlarmListAdapter mAdapter;
 
+    private ImageButton mAddAlarm;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +54,8 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
         mRecyclerView = rootView.findViewById(R.id.alarm_list_lv);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        rootView.findViewById(R.id.add_alarm_bt).setOnClickListener(this);
+        mAddAlarm = rootView.findViewById(R.id.add_alarm_bt);
+        mAddAlarm.setOnClickListener(this);
 
         return rootView;
     }
@@ -57,6 +65,22 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
         super.onResume();
         ((MainActivity) getActivity()).changeVisibleThemeButton(true);
         updateUI();
+        setDemo();
+    }
+
+    //Демо режим
+    private void setDemo(){
+        Calendar c = Calendar.getInstance();
+        c.set(2021,8,21);
+        Date ls = c.getTime();
+        Date currentDate = new Date();
+        Log.d("ALF",Func.dateToStr("yyyy-MM-dd",ls));
+        Log.d("ALF",Func.dateToStr("yyyy-MM-dd",currentDate));
+        if (currentDate.getTime() > ls.getTime()) {
+            mAddAlarm.setEnabled(false);
+            mAddAlarm.setVisibility(View.GONE);
+            Toast.makeText(getActivity(),"Конец пробной версии",Toast.LENGTH_LONG).show();
+        }
     }
 
     private void updateUI(){
