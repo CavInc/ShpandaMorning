@@ -88,5 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onSelect(int theme) {
         //TODO установка темы
+        mThemeButton.setImageResource(R.drawable.ic_arroy_down_white);
+        useTheme = !useTheme;
+        mDataManager.getPrefManager().setThemeId(theme);
+        recreate();
     }
 }
