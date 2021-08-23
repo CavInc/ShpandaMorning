@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.rm.rmswitch.RMSwitch;
+
 import java.util.ArrayList;
 
 import tk.cavink.shandamorning.R;
@@ -79,7 +81,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,CompoundButton.OnCheckedChangeListener {
         public TextView mHour;
         public TextView mDay;
-        public SwitchCompat mSwitch;
+        public RMSwitch mSwitch;
 
         private SelectAlarmListener mSelectAlarmListener;
 
@@ -89,7 +91,8 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
             mHour = itemView.findViewById(R.id.item_time);
             mDay = itemView.findViewById(R.id.item_period);
             mSwitch = itemView.findViewById(R.id.item_activity);
-            mSwitch.setOnCheckedChangeListener(this);
+            //mSwitch.setOnCheckedChangeListener(this);
+            mSwitch.addSwitchObserver(mRMSwitchObserver);
             itemView.setOnClickListener(this);
         }
 
@@ -106,5 +109,14 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
                 mSelectAlarmListener.onChangeAction(getAdapterPosition(),b);
             }
         }
+
+        RMSwitch.RMSwitchObserver mRMSwitchObserver = new RMSwitch.RMSwitchObserver() {
+            @Override
+            public void onCheckStateChange(RMSwitch switchView, boolean isChecked) {
+                if (mSelectAlarmListener != null) {
+                    mSelectAlarmListener.onChangeAction(getAdapterPosition(),isChecked);
+                }
+            }
+        };
     }
 }

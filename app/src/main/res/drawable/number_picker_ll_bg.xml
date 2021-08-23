@@ -11,7 +11,7 @@
                     android:startColor="#FFFFFF"
                     android:endColor="#FCF4E9"
                     android:angle="0"/>
-                <corners android:radius="25px"></corners>
+                <corners android:radius="25dp"></corners>
                 <stroke android:width="2dp"
                     android:color="@color/bg_creen"/>
             </shape>

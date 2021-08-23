@@ -34,19 +34,22 @@
         android:fontFamily="@font/roboto"
         android:textColor="@android:color/black"
         android:textSize="35sp"
+        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_period"
         tools:text="10:23"/>
 
-    <android.support.v7.widget.SwitchCompat
+    <com.rm.rmswitch.RMSwitch
         android:id="@+id/item_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:thumb="@drawable/switch_thumb"
+        android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_period"
-        app:track="@drawable/switch_track" />
+        app:switchBkgCheckedColor="@color/bg_creen"
+        app:switchBkgNotCheckedColor="@color/bg_bej"
+        app:switchDesign="large"
+        app:switchToggleCheckedColor="@android:color/white" />
 
 </android.support.constraint.ConstraintLayout>

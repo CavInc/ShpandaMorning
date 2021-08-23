@@ -10,7 +10,7 @@
             <solid android:color="@color/bg_bej"/>
             <gradient android:startColor="#FFFFFF"
                 android:endColor="#FCF4E9"/>
-            <corners android:radius="25px"></corners>
+            <corners android:radius="25dp"></corners>
         </shape>
     </item>
 </selector>
