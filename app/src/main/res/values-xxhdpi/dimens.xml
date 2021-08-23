@@ -4,4 +4,5 @@
     <dimen name="day_ml">2dp</dimen>
     <dimen name="logo_start_h">178dp</dimen>
     <dimen name="shpanda_start_h">140dp</dimen>
+    <dimen name="start_ac_left">78dp</dimen>
 </resources>
