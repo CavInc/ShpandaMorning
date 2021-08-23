@@ -13,24 +13,46 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
+        android:elevation="10dp"
+        android:background="@drawable/number_picker_ll_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <NumberPicker
+        <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/numberPicker1"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:background="@drawable/left_roller"
-            android:theme="@style/MyNumberPickerTheme" />
+            android:layout_width="110dp"
+            android:layout_height="128dp"
+            app:np_dividerDistance="0dp"
+            app:np_dividerThickness="0dp"
+            app:np_lineSpacingMultiplier="0.5"
+            app:np_selectedTextSize="30sp"
+            app:np_selectedTypeface="@string/roboto_medium"
+            app:np_textSize="20sp"
+            app:np_textColor="#89D38B"
+            app:np_typeface="@string/roboto_ligth"
+            app:np_formatter="@string/number_picker_formatter"
+            app:np_selectedTextColor="@color/bg_creen"
+             />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="128dp"
+            android:background="@color/bg_creen"/>
 
-        <NumberPicker
+        <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/numberPicker2"
-            style="@style/MyNumberPickerTheme"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:theme="@style/MyNumberPickerTheme"
-            android:background="@drawable/rigth_roller" />
+            android:layout_width="110dp"
+            android:layout_height="128dp"
+            app:np_dividerDistance="0dp"
+            app:np_dividerThickness="0dp"
+            app:np_lineSpacingMultiplier="0.5"
+            app:np_selectedTextSize="30sp"
+            app:np_selectedTypeface="@string/roboto_medium"
+            app:np_textSize="20sp"
+            app:np_textColor="#89D38B"
+            app:np_typeface="@string/roboto_ligth"
+            app:np_formatter="@string/number_picker_formatter"
+            app:np_selectedTextColor="@color/bg_creen"/>
     </LinearLayout>
 
 
@@ -41,7 +63,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/bottom_circle_green_bg"
+        style="@style/GCircleButton"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +77,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/bottom_circle_green_bg"
+        style="@style/GCircleButton"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/success_bt"
@@ -97,10 +119,8 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:text="Язык"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            style="@style/SetAlarmText"
+            android:text="Язык"/>
 
         <LinearLayout
             android:id="@+id/lang_panel"
@@ -172,10 +192,8 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:text="Звук:"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            style="@style/SetAlarmText"
+            android:text="Звук:" />
 
         <TextView
             android:id="@+id/add_rington_name"
@@ -214,10 +232,8 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
             android:layout_weight="2"
-            android:fontFamily="@font/roboto"
-            android:text="Громкость:"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            style="@style/SetAlarmText"
+            android:text="Громкость:" />
 
         <SeekBar
             android:id="@+id/volume"
@@ -254,11 +270,9 @@
             android:layout_marginBottom="14dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="14dp"
+            style="@style/SetAlarmText"
             android:layout_weight="1"
-            android:fontFamily="@font/roboto"
-            android:text="Вибросигнал:"
-            android:textColor="@android:color/black"
-            android:typeface="normal" />
+            android:text="Вибросигнал:"/>
 
         <com.rm.rmswitch.RMSwitch
             android:id="@+id/vibro_set"

@@ -3,6 +3,9 @@
     <string name="str_lang_ru">Русский</string>
     <string name="str_lang_en">English</string>
     <string name="str_lang_de">German</string>
+    <string name="number_picker_formatter">%02d</string>
+    <string name="roboto_ligth">roboto-ligth</string>
+    <string name="roboto_medium">sans-serif-medium</string>
 
     <string-array name="name_day">
         <item>Пн</item>

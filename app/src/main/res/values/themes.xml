@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GreenTheme" parent="AppTheme.NoActionBar">
+
+    </style>
+    <style name="VioletTheme" parent="AppTheme.NoActionBar">
+
+    </style>
+    <style name="BlueTheme" parent="AppTheme.NoActionBar">
+
+    </style>
+    <style name="DarkTheme" parent="AppTheme.NoActionBar">
+
+    </style>
+    <style name="GrayTheme" parent="AppTheme.NoActionBar">
+
+    </style>
+</resources>

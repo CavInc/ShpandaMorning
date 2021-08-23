@@ -52,4 +52,16 @@
         <item name="android:trackTint">@color/bg_creen</item>
     </style>
 
+    <style name="SetAlarmText">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="GCircleButton">
+        <item name="android:width">52dp</item>
+        <item name="android:height">52dp</item>
+        <item name="android:background">@drawable/bottom_circle_green_bg</item>
+    </style>
+
 </resources>

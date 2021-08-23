@@ -49,6 +49,9 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
     private static final String TAG = "SAF";
     private DataManager mDataManager;
 
+    private com.shawnlin.numberpicker.NumberPicker np1;
+    private com.shawnlin.numberpicker.NumberPicker np2;
+    private SwitchCompat mVibroSet;
     private NumberPicker np1;
     private NumberPicker np2;
     private RMSwitch mVibroSet;
