@@ -7,8 +7,8 @@
     <selector>
         <item>
             <shape android:shape="rectangle">
-                <gradient android:startColor="#92DA94"
-                    android:endColor="#5FB462"/>
+                <gradient android:startColor="@color/day_bt_gr_st"
+                    android:endColor="@color/day_bt_gr_end"/>
                 <corners android:radius="10dp"/>
                 <stroke android:width="2px"
                     android:color="@color/bg_creen"/>

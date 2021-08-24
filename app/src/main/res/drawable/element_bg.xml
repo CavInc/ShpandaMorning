@@ -8,8 +8,8 @@
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@color/bg_bej"/>
-            <gradient android:startColor="#FFFFFF"
-                android:endColor="#FCF4E9"/>
+            <gradient android:startColor="@color/elem_gr_st"
+                android:endColor="@color/elem_gr_en"/>
             <corners android:radius="25dp"></corners>
         </shape>
     </item>

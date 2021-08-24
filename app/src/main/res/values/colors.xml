@@ -12,5 +12,20 @@
     <color name="bg_violet">#B178FF</color>
     <color name="bg_blue">#007DFE</color>
     <color name="bg_gray">#656565</color>
+    <color name="bottom_green_grad_st">#92DA94</color>
+    <color name="botton_green_grad_midle">#5FB462</color>
+    <color name="bottom_green_grad_end">#69BC6C</color>
+    <color name="day_bt_gr_st">#92DA94</color>
+    <color name="day_bt_gr_end">#5FB462</color>
+    <color name="elem_gr_st">#FFFFFF</color>
+    <color name="elem_gr_en">#FCF4E9</color>
+    <color name="lang_bg_gr_st">#FFFFFF</color>
+    <color name="lang_bg_gr_end">#F8F8F8</color>
+    <color name="lang_bg_border">#E6E2D5</color>
+    <color name="number_pick_gr_st">#FFFFFF</color>
+    <color name="number_pick_gr_end">#FCF4E9</color>
+    <color name="theme_gr_st">#FFFFFF</color>
+    <color name="theme_gr_end">#FCF4E9</color>
+    <color name="thme_border">#E6E2D5</color>
 
 </resources>
