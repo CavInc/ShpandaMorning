@@ -58,4 +58,28 @@
         <attr name="np_wheelItemCount" format="integer" />
         <attr name="np_wrapSelectorWheel" format="boolean" />
     </declare-styleable>
+
+
+    <attr name="bg_bej" format="reference|color"/>
+    <attr name="bg_creen" format="reference|color"/>
+    <attr name="bg_disable_switch" format="reference|color" />
+
+    <attr name="bg_violet" format="reference|color"/>
+    <attr name="bg_blue" format="reference|color" />
+    <attr name="bg_gray" format="reference|color" />
+    <attr name="bottom_green_grad_st" format="reference|color" />
+    <attr name="botton_green_grad_midle" format="reference|color" />
+    <attr name="bottom_green_grad_end" format="reference|color" />
+    <attr name="day_bt_gr_st" format="reference|color" />
+    <attr name="day_bt_gr_end" format="reference|color" />
+    <attr name="elem_gr_st" format="reference|color"/>
+    <attr name="elem_gr_en" format="reference|color" />
+    <attr name="lang_bg_gr_st" format="reference|color" />
+    <attr name="lang_bg_gr_end" format="reference|color" />
+    <attr name="lang_bg_border" format="reference|color" />
+    <attr name="number_pick_gr_st" format="reference|color" />
+    <attr name="number_pick_gr_end" format="reference|color" />
+    <attr name="theme_gr_st" format="reference|color" />
+    <attr name="theme_gr_end" format="reference|color" />
+    <attr name="thme_border" format="reference|color" />
 </resources>
