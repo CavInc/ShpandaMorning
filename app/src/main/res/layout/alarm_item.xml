@@ -47,8 +47,8 @@
         android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_period"
-        app:switchBkgCheckedColor="@color/bg_creen"
-        app:switchBkgNotCheckedColor="@color/bg_bej"
+        app:switchBkgCheckedColor="?attr/switch_color_enable"
+        app:switchBkgNotCheckedColor="?attr/switch_color_enable"
         app:switchDesign="large"
         app:switchToggleCheckedColor="@android:color/white" />
 

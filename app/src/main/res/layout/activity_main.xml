@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_bej"
+    android:background="?attr/bg_bej"
     tools:context="tk.cavink.shandamorning.ui.activites.MainActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/head_main"
         android:layout_width="match_parent"
         android:layout_height="128dp"
-        android:background="@drawable/ic_rectangle_head2"
+        android:background="?attr/main_head_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

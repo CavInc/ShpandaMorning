@@ -17,9 +17,9 @@
                       android:drawable="@android:color/transparent" />
                 <item>
                     <shape android:shape="rectangle"
-                           android:tint="@color/bg_creen">
+                           android:tint="?attr/bg_creen">
                         <size android:height="5dp" />
-                        <solid android:color="@color/bg_creen" />
+                        <solid android:color="?attr/bg_creen" />
                     </shape>
                 </item>
             </selector>

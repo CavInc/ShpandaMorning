@@ -20,7 +20,7 @@
         android:layout_height="wrap_content">
         <ImageButton
             android:id="@+id/theme_green"
-            android:background="@drawable/bottom_circle_green_bg"
+            android:background="@drawable/bottom_circle_green_bg2"
             android:layout_marginRight="8dp"
             android:layout_width="50dp"
             android:layout_height="50dp"/>

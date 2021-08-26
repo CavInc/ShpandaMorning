@@ -7,13 +7,13 @@
     <selector >
         <item>
             <shape android:shape="rectangle">
+                <stroke android:width="2dp"
+                    android:color="?attr/number_pick_border"/>
                 <gradient
-                    android:startColor="@color/number_pick_gr_st"
-                    android:endColor="@color/number_pick_gr_end"
+                    android:startColor="?attr/number_pick_gr_st"
+                    android:endColor="?attr/number_pick_gr_end"
                     android:angle="0"/>
                 <corners android:radius="25dp"></corners>
-                <stroke android:width="2dp"
-                    android:color="@color/bg_creen"/>
             </shape>
         </item>
     </selector>
