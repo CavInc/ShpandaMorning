@@ -55,7 +55,7 @@
     <style name="SetAlarmText">
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:typeface">normal</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">?attr/setalarm_txt_color</item>
     </style>
 
     <style name="GCircleButton">

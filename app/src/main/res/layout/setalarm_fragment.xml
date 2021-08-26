@@ -32,7 +32,7 @@
             app:np_textColor="?attr/np_text_color"
             app:np_typeface="@string/roboto_ligth"
             app:np_formatter="@string/number_picker_formatter"
-            app:np_selectedTextColor="?attr/bg_creen"/>
+            app:np_selectedTextColor="?attr/number_pick_select_txt"/>
         <View
             android:layout_width="2dp"
             android:layout_height="128dp"
@@ -51,7 +51,7 @@
             app:np_textColor="?attr/np_text_color"
             app:np_typeface="@string/roboto_ligth"
             app:np_formatter="@string/number_picker_formatter"
-            app:np_selectedTextColor="?attr/bg_creen"/>
+            app:np_selectedTextColor="?attr/number_pick_select_txt"/>
     </LinearLayout>
 
 

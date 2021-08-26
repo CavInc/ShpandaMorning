@@ -3,6 +3,7 @@
     <style name="GreenTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">@color/bg_creen</item>
         <item name="bg_bej">@color/bg_bej</item>
+        <item name="seek_bar_color">@color/bg_creen</item>
         <item name="bg_disable_switch">@color/bg_disable_switch</item>
         <item name="bottom_green_grad_st">@color/bottom_green_grad_st</item>
         <item name="bottom_green_grad_end">@color/botton_green_grad_end</item>
@@ -19,6 +20,7 @@
         <item name="number_pick_gr_st">@color/number_pick_gr_st</item>
         <item name="number_pick_gr_end">@color/number_pick_gr_end</item>
         <item name="number_pick_border">@color/bg_creen</item>
+        <item name="number_pick_select_txt">@color/bg_creen</item>
 
         <item name="theme_gr_st">@color/theme_gr_st</item>
         <item name="theme_gr_end">@color/theme_gr_end</item>
@@ -28,11 +30,19 @@
         <item name="np_text_color">@color/np_text_color</item>
         <item name="switch_color_enable">@color/bg_creen</item>
         <item name="switch_color_disable">@color/bg_bej</item>
+
+        <item name="setalarm_txt_color">@android:color/black</item>
+
+        <item name="button_red_gr_st">@color/button_red_gr_st</item>
+        <item name="button_red_gr_midle">@color/button_red_gr_midle</item>
+        <item name="button_red_gr_end">@color/button_red_gr_end</item>
+        <item name="button_red_border">@color/button_red_border</item>
     </style>
 
     <style name="VioletTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#B178FF</item>
         <item name="bg_bej">#E5E5E5</item>
+        <item name="seek_bar_color">#B178FF</item>
         <item name="bottom_green_grad_st">#B178FF</item>
         <item name="bottom_green_grad_end">#A970F7</item>
         <item name="bottom_green_border">#975BE9</item>
@@ -44,6 +54,7 @@
         <item name="number_pick_gr_st">#FFFFFF</item>
         <item name="number_pick_gr_end">#FFFFFF</item>
         <item name="number_pick_border">#D3D3D3</item>
+        <item name="number_pick_select_txt">#B178FF</item>
         <item name="np_text_color">#CDCDCD</item>
 
         <item name="elem_gr_st">#FFFFFF</item>
@@ -57,41 +68,118 @@
         <item name="lang_bg_gr_end">#A970F7</item>
         <item name="lang_bg_border">#A970F7</item>
         <item name="lang_txt_color">@android:color/white</item>
+        <item name="setalarm_txt_color">@android:color/black</item>
+
+        <item name="button_red_gr_st">@color/button_red_gr_st</item>
+        <item name="button_red_gr_midle">@color/button_red_gr_midle</item>
+        <item name="button_red_gr_end">@color/button_red_gr_end</item>
+        <item name="button_red_border">@color/button_red_border</item>
 
     </style>
     <style name="BlueTheme" parent="AppTheme.NoActionBar">
+        <item name="bg_creen">#007DFE</item>
         <item name="bg_bej">#E5E5E5</item>
-        <item name="bottom_green_grad_st">@color/bottom_green_grad_st</item>
-        <item name="bottom_green_grad_end">@color/botton_green_grad_end</item>
-        <item name="bottom_green_border">@color/bottom_green_border</item>
-    </style>
-    <style name="DarkTheme" parent="AppTheme.NoActionBar">
-        <item name="bg_bej">#D1000000</item>
-        <item name="bottom_green_grad_st">@color/bottom_green_grad_st</item>
-        <item name="bottom_green_grad_end">@color/botton_green_grad_end</item>
-        <item name="bottom_green_border">@color/bottom_green_border</item>
-    </style>
-    <style name="GrayTheme" parent="AppTheme.NoActionBar">
-        <item name="bg_creen">#B178FF</item>
-        <item name="bg_bej">#E5E5E5</item>
-        <item name="bottom_green_grad_st">#B178FF</item>
-        <item name="bottom_green_grad_end">#A970F7</item>
-        <item name="bottom_green_border">#975BE9</item>
+        <item name="seek_bar_color">#007DFE</item>
+        <item name="bottom_green_grad_st">#007DFE</item>
+        <item name="bottom_green_grad_end">#18A0FB</item>
+        <item name="bottom_green_border">#006FA3</item>
 
-        <item name="day_bt_gr_st">#B178FF</item>
-        <item name="day_bt_gr_end">#A970F7</item>
+        <item name="day_bt_gr_st">#007DFE</item>
+        <item name="day_bt_gr_end">#18A0FB</item>
+        <item name="day_bg_no_select">#FFFFFF</item>
 
         <item name="number_pick_gr_st">#FFFFFF</item>
         <item name="number_pick_gr_end">#FFFFFF</item>
-        <!-- <item name="number_pick_border">#D3D3D3</item> -->
-        <item name="number_pick_border">@color/colorAccent</item>
+        <item name="number_pick_border">#D3D3D3</item>
         <item name="np_text_color">#CDCDCD</item>
+        <item name="number_pick_select_txt">#007DFE</item>
 
         <item name="elem_gr_st">#FFFFFF</item>
         <item name="elem_gr_en">#FFFFFF</item>
 
-        <item name="main_head_bg">@drawable/ic_rectangle_head_violet</item>
-        <item name="switch_color_enable">#A970F7</item>
+        <item name="main_head_bg">@drawable/ic_rectangle_head_blue</item>
+        <item name="switch_color_enable">#18A0FB</item>
         <item name="switch_color_disable">#3B565656</item>
+
+        <item name="lang_bg_gr_st">#007DFE</item>
+        <item name="lang_bg_gr_end">#007DFE</item>
+        <item name="lang_bg_border">#007DFE</item>
+        <item name="lang_txt_color">@android:color/white</item>
+        <item name="setalarm_txt_color">@android:color/black</item>
+
+        <item name="button_red_gr_st">@color/button_red_gr_st</item>
+        <item name="button_red_gr_midle">@color/button_red_gr_midle</item>
+        <item name="button_red_gr_end">@color/button_red_gr_end</item>
+        <item name="button_red_border">@color/button_red_border</item>
+    </style>
+    <style name="DarkTheme" parent="AppTheme.NoActionBar">
+        <item name="bg_creen">#2E2E2E</item>
+        <item name="bg_bej">#2E2E2E</item>
+        <item name="seek_bar_color">#18A0FB</item>
+        <item name="bottom_green_grad_st">#2E2E2E</item>
+        <item name="bottom_green_grad_end">#2E2E2E</item>
+        <item name="bottom_green_border">#006FA3</item>
+
+        <item name="day_bt_gr_st">#B178FF</item>
+        <item name="day_bt_gr_end">#A970F7</item>
+        <item name="day_bg_no_select">#FFFFFF</item>
+
+        <item name="number_pick_gr_st">#535353</item>
+        <item name="number_pick_gr_end">#222222</item>
+        <item name="number_pick_border">#FFFFFF</item>
+        <item name="np_text_color">#FFFFFF</item>
+        <item name="number_pick_select_txt">#FFFFFF</item>
+
+        <item name="elem_gr_st">#535353</item>
+        <item name="elem_gr_en">#262626</item>
+
+        <item name="main_head_bg">@drawable/ic_rectangle_head_dark</item>
+        <item name="switch_color_enable">#006FA3</item>
+        <item name="switch_color_disable">#565656</item>
+
+        <item name="lang_bg_gr_st">#656565</item>
+        <item name="lang_bg_gr_end">#656565</item>
+        <item name="lang_bg_border">#656565</item>
+        <item name="lang_txt_color">@android:color/white</item>
+        <item name="setalarm_txt_color">@android:color/white</item>
+        <item name="button_red_gr_st">#2E2E2E</item>
+        <item name="button_red_gr_midle">#2E2E2E</item>
+        <item name="button_red_gr_end">#2E2E2E</item>
+        <item name="button_red_border">@color/button_red_border</item>
+    </style>
+    <style name="GrayTheme" parent="AppTheme.NoActionBar">
+        <item name="bg_creen">#656565</item>
+        <item name="bg_bej">#E5E5E5</item>
+        <item name="seek_bar_color">#656565</item>
+        <item name="bottom_green_grad_st">#858585</item>
+        <item name="bottom_green_grad_end">#656565</item>
+        <item name="bottom_green_border">#656565</item>
+
+        <item name="day_bt_gr_st">#B178FF</item>
+        <item name="day_bt_gr_end">#A970F7</item>
+        <item name="day_bg_no_select">#FFFFFF</item>
+
+        <item name="number_pick_gr_st">#FFFFFF</item>
+        <item name="number_pick_gr_end">#FFFFFF</item>
+        <item name="number_pick_border">#D3D3D3</item>
+        <item name="np_text_color">#CDCDCD</item>
+        <item name="number_pick_select_txt">#656565</item>
+
+        <item name="elem_gr_st">#FFFFFF</item>
+        <item name="elem_gr_en">#FFFFFF</item>
+
+        <item name="main_head_bg">@drawable/ic_rectangle_head_gray</item>
+        <item name="switch_color_enable">#656565</item>
+        <item name="switch_color_disable">#3B565656</item>
+
+        <item name="lang_bg_gr_st">#656565</item>
+        <item name="lang_bg_gr_end">#656565</item>
+        <item name="lang_bg_border">#656565</item>
+        <item name="lang_txt_color">@android:color/white</item>
+        <item name="setalarm_txt_color">@android:color/black</item>
+        <item name="button_red_gr_st">@color/button_red_gr_st</item>
+        <item name="button_red_gr_midle">@color/button_red_gr_midle</item>
+        <item name="button_red_gr_end">@color/button_red_gr_end</item>
+        <item name="button_red_border">@color/button_red_border</item>
     </style>
 </resources>

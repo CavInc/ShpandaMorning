@@ -7,10 +7,10 @@
     <selector>
         <item>
             <shape android:shape="oval">
-                <gradient android:startColor="#D80027"
-                          android:centerColor="#FF4869"
-                          android:endColor="#FF4869"/>
-                <stroke android:color="#FF4869"
+                <gradient android:startColor="?attr/button_red_gr_st"
+                          android:centerColor="?attr/button_red_gr_midle"
+                          android:endColor="?attr/button_red_gr_end"/>
+                <stroke android:color="?attr/button_red_border"
                         android:width="2px"/>
             </shape>
         </item>
