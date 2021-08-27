@@ -74,6 +74,7 @@
     <attr name="day_bt_gr_st" format="reference|color" />
     <attr name="day_bt_gr_end" format="reference|color" />
     <attr name="day_bg_no_select" format="reference|color"/>
+    <attr name="day_bg_select_border" format="reference|color"/>
     <attr name="elem_gr_st" format="reference|color"/>
     <attr name="elem_gr_en" format="reference|color" />
     <attr name="lang_bg_gr_st" format="reference|color" />

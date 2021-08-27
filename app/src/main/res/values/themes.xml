@@ -11,6 +11,7 @@
         <item name="day_bt_gr_st">@color/day_bt_gr_st</item>
         <item name="day_bt_gr_end">@color/day_bt_gr_end</item>
         <item name="day_bg_no_select">@color/bg_bej</item>
+        <item name="day_bg_select_border">@color/bg_creen</item>
         <item name="elem_gr_st">@color/elem_gr_st</item>
         <item name="elem_gr_en">@color/elem_gr_en</item>
         <item name="lang_bg_gr_st">@color/lang_bg_gr_st</item>
@@ -50,6 +51,7 @@
         <item name="day_bt_gr_st">#B178FF</item>
         <item name="day_bt_gr_end">#A970F7</item>
         <item name="day_bg_no_select">#FFFFFF</item>
+        <item name="day_bg_select_border">#B178FF</item>
 
         <item name="number_pick_gr_st">#FFFFFF</item>
         <item name="number_pick_gr_end">#FFFFFF</item>
@@ -87,6 +89,7 @@
         <item name="day_bt_gr_st">#007DFE</item>
         <item name="day_bt_gr_end">#18A0FB</item>
         <item name="day_bg_no_select">#FFFFFF</item>
+        <item name="day_bg_select_border">#007DFE</item>
 
         <item name="number_pick_gr_st">#FFFFFF</item>
         <item name="number_pick_gr_end">#FFFFFF</item>
@@ -120,9 +123,10 @@
         <item name="bottom_green_grad_end">#2E2E2E</item>
         <item name="bottom_green_border">#006FA3</item>
 
-        <item name="day_bt_gr_st">#B178FF</item>
-        <item name="day_bt_gr_end">#A970F7</item>
-        <item name="day_bg_no_select">#FFFFFF</item>
+        <item name="day_bt_gr_st">#2E2E2E</item>
+        <item name="day_bt_gr_end">#2E2E2E</item>
+        <item name="day_bg_no_select">#373737</item>
+        <item name="day_bg_select_border">#18A0FB</item>
 
         <item name="number_pick_gr_st">#535353</item>
         <item name="number_pick_gr_end">#222222</item>
@@ -155,9 +159,10 @@
         <item name="bottom_green_grad_end">#656565</item>
         <item name="bottom_green_border">#656565</item>
 
-        <item name="day_bt_gr_st">#B178FF</item>
-        <item name="day_bt_gr_end">#A970F7</item>
+        <item name="day_bt_gr_st">#656565</item>
+        <item name="day_bt_gr_end">#656565</item>
         <item name="day_bg_no_select">#FFFFFF</item>
+        <item name="day_bg_select_border">#656565</item>
 
         <item name="number_pick_gr_st">#FFFFFF</item>
         <item name="number_pick_gr_end">#FFFFFF</item>

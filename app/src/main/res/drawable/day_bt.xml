@@ -5,9 +5,9 @@
        android:insetRight="4dp"
        xmlns:android="http://schemas.android.com/apk/res/android">
 <selector>
-    <item>
+    <item android:id="@+id/day_no_action">
         <shape android:shape="rectangle">
-            <solid android:color="@color/bg_bej"/>
+            <solid android:color="?attr/day_bg_no_select"/>
             <corners android:radius="10dp"/>
         </shape>
     </item>
