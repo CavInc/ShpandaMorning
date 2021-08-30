@@ -7,11 +7,11 @@
     <selector >
         <item>
             <shape android:shape="rectangle">
-                <gradient android:startColor="@color/lang_bg_gr_st"
-                    android:endColor="@color/lang_bg_gr_end"/>
+                <gradient android:startColor="?attr/lang_bg_gr_st"
+                    android:endColor="?attr/lang_bg_gr_end"/>
                 <corners android:radius="25dp"></corners>
                 <stroke android:width="2px"
-                    android:color="@color/lang_bg_border"/>
+                    android:color="?attr/lang_bg_border"/>
             </shape>
         </item>
     </selector>

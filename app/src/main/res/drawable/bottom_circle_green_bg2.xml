@@ -7,9 +7,9 @@
     <selector>
         <item>
             <shape android:shape="oval">
-                <gradient android:startColor="?attr/bottom_green_grad_st"
-                    android:endColor="?attr/bottom_green_grad_end"/>
-                <stroke android:color="?attr/bottom_green_border"
+                <gradient android:startColor="@color/bottom_green_grad_st"
+                    android:endColor="@color/botton_green_grad_end"/>
+                <stroke android:color="@color/bottom_green_border"
                     android:width="2px"/>
             </shape>
         </item>

@@ -29,15 +29,14 @@
             app:np_selectedTextSize="30sp"
             app:np_selectedTypeface="@string/roboto_medium"
             app:np_textSize="20sp"
-            app:np_textColor="#89D38B"
+            app:np_textColor="?attr/np_text_color"
             app:np_typeface="@string/roboto_ligth"
             app:np_formatter="@string/number_picker_formatter"
-            app:np_selectedTextColor="@color/bg_creen"
-             />
+            app:np_selectedTextColor="?attr/number_pick_select_txt"/>
         <View
             android:layout_width="2dp"
             android:layout_height="128dp"
-            android:background="@color/bg_creen"/>
+            android:background="?attr/np_text_color"/>
 
         <com.shawnlin.numberpicker.NumberPicker
             android:id="@+id/numberPicker2"
@@ -49,10 +48,10 @@
             app:np_selectedTextSize="30sp"
             app:np_selectedTypeface="@string/roboto_medium"
             app:np_textSize="20sp"
-            app:np_textColor="#89D38B"
+            app:np_textColor="?attr/np_text_color"
             app:np_typeface="@string/roboto_ligth"
             app:np_formatter="@string/number_picker_formatter"
-            app:np_selectedTextColor="@color/bg_creen"/>
+            app:np_selectedTextColor="?attr/number_pick_select_txt"/>
     </LinearLayout>
 
 
@@ -149,7 +148,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/lang_txt_color"
                 android:textSize="12sp"
                 tools:text="русский" />
 
@@ -282,8 +281,8 @@
             app:enabled="true"
             app:switchDesign="large"
             app:switchToggleCheckedColor="@android:color/white"
-            app:switchBkgCheckedColor="@color/bg_creen"
-            app:switchBkgNotCheckedColor="@color/bg_bej"
+            app:switchBkgCheckedColor="?attr/switch_color_enable"
+            app:switchBkgNotCheckedColor="?attr/switch_color_disable"
             android:layout_marginBottom="14dp"
             android:layout_marginTop="14dp"
             android:layout_marginRight="14dp"

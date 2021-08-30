@@ -63,19 +63,19 @@ public class ThemeDialogs extends DialogFragment implements View.OnClickListener
         if (mThemeDialogListener != null){
             switch (view.getId()){
                 case R.id.theme_green:
-                    mThemeDialogListener.onSelect(ConstantManager.THEME_GREEN);
+                    mThemeDialogListener.onSelect(R.style.GreenTheme);
                     break;
                 case R.id.theme_velvet:
-                    mThemeDialogListener.onSelect(ConstantManager.THEME_VELVET);
+                    mThemeDialogListener.onSelect(R.style.VioletTheme);
                     break;
                 case R.id.theme_blue:
-                    mThemeDialogListener.onSelect(ConstantManager.THEME_BLUE);
+                    mThemeDialogListener.onSelect(R.style.BlueTheme);
                     break;
                 case R.id.theme_dark:
-                    mThemeDialogListener.onSelect(ConstantManager.THEME_DARK);
+                    mThemeDialogListener.onSelect(R.style.DarkTheme);
                     break;
                 case R.id.theme_gray:
-                    mThemeDialogListener.onSelect(ConstantManager.THEME_GRAY);
+                    mThemeDialogListener.onSelect(R.style.GrayTheme);
                     break;
             }
         }

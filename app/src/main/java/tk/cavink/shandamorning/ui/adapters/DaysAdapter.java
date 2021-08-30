@@ -2,8 +2,14 @@ package tk.cavink.shandamorning.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tk.cavink.shandamorning.R;
+import tk.cavink.shandamorning.data.managers.DataManager;
 import tk.cavink.shandamorning.data.models.AlarmDaySetData;
 import tk.cavink.shandamorning.ui.helpers.SelectDayListener;
 
@@ -25,11 +32,13 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder>{
     private List<AlarmDaySetData> mData;
 
     private SelectDayListener mSelectDayListener;
+    private int themeId;
 
     public DaysAdapter(Context context, List<AlarmDaySetData> data,SelectDayListener listener) {
         mContext = context;
         mData = data;
         mSelectDayListener = listener;
+        themeId = DataManager.getInstance().getPrefManager().getThemeId();
     }
 
     @NonNull
@@ -44,11 +53,16 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder>{
         AlarmDaySetData rec = mData.get(position);
         viewHolder.mDayItem.setText(rec.getName());
         if (rec.isAction()) {
-            viewHolder.mView.setBackground(mContext.getResources().getDrawable(R.drawable.day_bt_green,null));
+            viewHolder.mView.setBackground(mContext.getResources().getDrawable(R.drawable.day_bt_green,mContext.getTheme()));
             viewHolder.mDayItem.setTextColor(mContext.getResources().getColor(android.R.color.white));
         } else {
-            viewHolder.mView.setBackground(mContext.getResources().getDrawable(R.drawable.day_bt,null));
-            viewHolder.mDayItem.setTextColor(mContext.getResources().getColor(android.R.color.black));
+            viewHolder.mView.setBackground(mContext.getResources().getDrawable(R.drawable.day_bt,mContext.getTheme()));
+            if (themeId ==  R.style.DarkTheme) {
+                viewHolder.mDayItem.setTextColor(mContext.getResources().getColor(android.R.color.white));
+            } else {
+                viewHolder.mDayItem.setTextColor(mContext.getResources().getColor(android.R.color.black));
+            }
+
         }
     }
 

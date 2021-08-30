@@ -32,14 +32,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //setTheme(R.style.GreenTheme);
+        mDataManager = DataManager.getInstance();
+        setTheme(mDataManager.getPrefManager().getThemeId());
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
-        mDataManager = DataManager.getInstance();
+
 
         mThemeButton =  findViewById(R.id.theme_change_bt);
         mThemeButton.setOnClickListener(this);
