@@ -103,5 +103,6 @@
     <attr name="button_red_gr_end" format="reference|color"/>
     <attr name="button_red_border" format="reference|color"/>
     <attr name="alarm_button_color" format="reference|color"/>
+    <attr name="alarm_button_img" format="reference"/>
 
 </resources>

@@ -7,7 +7,7 @@
     <selector>
         <item>
             <shape android:shape="rectangle">
-                <stroke android:color="@color/bg_creen"
+                <stroke android:color="?attr/bg_creen"
                     android:width="2px"/>
                 <corners android:radius="18dp"/>
                 <padding android:bottom="6dp"

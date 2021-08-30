@@ -40,6 +40,7 @@
         <item name="button_red_border">@color/button_red_border</item>
 
         <item name="alarm_button_color">@color/bg_creen</item>
+        <item name="alarm_button_img">@drawable/ic_alarm_bt_green</item>
     </style>
 
     <style name="VioletTheme" parent="AppTheme.NoActionBar">
@@ -79,6 +80,7 @@
         <item name="button_red_gr_end">@color/button_red_gr_end</item>
         <item name="button_red_border">@color/button_red_border</item>
         <item name="alarm_button_color">#B178FF</item>
+        <item name="alarm_button_img">@drawable/ic_alarm_bt_violet</item>
     </style>
     <style name="BlueTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#007DFE</item>
@@ -117,6 +119,7 @@
         <item name="button_red_gr_end">@color/button_red_gr_end</item>
         <item name="button_red_border">@color/button_red_border</item>
         <item name="alarm_button_color">@color/bg_creen</item>
+        <item name="alarm_button_img">@drawable/ic_alarm_bt_blue</item>
     </style>
     <style name="DarkTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#2E2E2E</item>
@@ -154,6 +157,7 @@
         <item name="button_red_gr_end">#2E2E2E</item>
         <item name="button_red_border">@color/button_red_border</item>
         <item name="alarm_button_color">@color/bg_creen</item>
+        <item name="alarm_button_img">@drawable/ic_alarm_bt_blue</item>
     </style>
     <style name="GrayTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#656565</item>
@@ -191,5 +195,6 @@
         <item name="button_red_gr_end">@color/button_red_gr_end</item>
         <item name="button_red_border">@color/button_red_border</item>
         <item name="alarm_button_color">@color/bg_creen</item>
+        <item name="alarm_button_img">@drawable/ic_alarm_bt_gray</item>
     </style>
 </resources>

@@ -25,16 +25,6 @@ public class AlarmTaskReciver extends BroadcastReceiver {
     }
 
     private void startAlarm(){
-        /*
-        Intent intent = new Intent(mContext, AlarmSignalActivity.class);
-        intent.putExtra("URL_SOUND",mModel.getAlarmUrlMelodu());
-        intent.putExtra("TYPE_ALARM",mModel.getAlarmStopType());
-        intent.putExtra("SIZE_ALARM",mModel.getAlarmSize());
-        intent.putExtra("ALARM_ID",mModel.getId());
-        intent.putExtra("ALARM_VOLUME",mModel.getAlarmVolume());
-        intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(intent);
-        */
         if (mId != -1) {
             Intent intent = new Intent(mContext, AlarmActivity.class);
             intent.putExtra(ConstantManager.ALARM_ID,mId);

@@ -43,6 +43,9 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        DataManager dataManager = DataManager.getInstance();
+        setTheme(dataManager.getPrefManager().getThemeId());
+
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
