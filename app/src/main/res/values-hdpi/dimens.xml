@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="day_mr">2dp</dimen>
+    <dimen name="day_ml">2dp</dimen>
+    <dimen name="logo_start_h">158dp</dimen>
+    <dimen name="shpanda_start_h">120dp</dimen>
+    <dimen name="start_ac_left">64dp</dimen>
+</resources>
