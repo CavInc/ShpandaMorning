@@ -94,17 +94,19 @@ public class Func {
         Log.d("FUNC","ALARM _ID: "+date.getId());
 
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        /*
+
         Intent intent=new Intent(context, AlarmTaskReciver.class);
         intent.putExtra(ConstantManager.ALARM_ID,date.getId());
-        */
-        //PendingIntent pi= PendingIntent.getBroadcast(context,date.getId(), intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
+        PendingIntent pi= PendingIntent.getBroadcast(context,date.getId(), intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        /*
         Intent intent = new Intent(context, AlarmActivity.class);
         intent.putExtra(ConstantManager.ALARM_ID,date.getId());
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
 
         PendingIntent pi = PendingIntent.getActivity(context,date.getId(),intent,PendingIntent.FLAG_CANCEL_CURRENT);
+         */
 
         //
         ArrayList<Boolean> days = date.getDays();
