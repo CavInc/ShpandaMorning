@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -97,7 +98,6 @@ public class Func {
         Intent intent=new Intent(context, AlarmTaskReciver.class);
         intent.putExtra(ConstantManager.ALARM_ID,date.getId());
         */
-        // добавить констану ?
         //PendingIntent pi= PendingIntent.getBroadcast(context,date.getId(), intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         Intent intent = new Intent(context, AlarmActivity.class);

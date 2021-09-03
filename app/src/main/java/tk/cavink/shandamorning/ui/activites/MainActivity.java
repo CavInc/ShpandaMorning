@@ -2,6 +2,7 @@ package tk.cavink.shandamorning.ui.activites;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mDataManager = DataManager.getInstance();
+
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+
         setTheme(mDataManager.getPrefManager().getThemeId());
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
