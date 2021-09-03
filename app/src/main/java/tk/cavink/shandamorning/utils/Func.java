@@ -155,6 +155,12 @@ public class Func {
 
         Log.d("FUNC",dateToStr("yyyy-MM-dd HH:mm:ss",c.getTime()));
 
+
+        /*
+        Calendar time_up = Calendar.getInstance();
+        time_up.setTimeInMillis(System.currentTimeMillis());
+        */
+
         if (mode) {
             am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
         } else {
