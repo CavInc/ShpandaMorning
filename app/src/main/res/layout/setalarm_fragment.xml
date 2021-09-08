@@ -105,7 +105,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
-        android:elevation="6dp"
+        android:elevation="?attr/set_alarm_item_elevator"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +138,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="6dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_arrow3" />
+                android:background="@android:color/transparent"
+                app:srcCompat="?attr/lang_arrow_left" />
 
             <TextView
                 android:id="@+id/lang_tv"
@@ -166,7 +167,8 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="6dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_arrow2" />
+                android:background="@android:color/transparent"
+                app:srcCompat="?attr/lang_arrow_rigth" />
         </LinearLayout>
     </LinearLayout>
 
@@ -178,7 +180,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
-        android:elevation="6dp"
+        android:elevation="?attr/set_alarm_item_elevator"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -218,7 +220,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
-        android:elevation="6dp"
+        android:elevation="?attr/set_alarm_item_elevator"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -257,7 +259,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/element_bg"
-        android:elevation="6dp"
+        android:elevation="?attr/set_alarm_item_elevator"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

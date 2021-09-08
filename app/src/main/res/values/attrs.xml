@@ -105,4 +105,9 @@
     <attr name="alarm_button_color" format="reference|color"/>
     <attr name="alarm_button_img" format="reference"/>
 
+    <attr name="set_alarm_item_elevator" format="dimension"/>
+
+    <attr name="lang_arrow_left" format="reference"></attr>
+    <attr name="lang_arrow_rigth" format="reference"/>
+
 </resources>
