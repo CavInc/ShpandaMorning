@@ -59,8 +59,6 @@
     </style>
 
     <style name="GCircleButton">
-        <item name="android:width">52dp</item>
-        <item name="android:height">52dp</item>
         <item name="android:background">@drawable/bottom_circle_green_bg</item>
     </style>
 

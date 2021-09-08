@@ -6,4 +6,6 @@
     <dimen name="shpanda_start_h">120dp</dimen>
     <dimen name="start_ac_left">64dp</dimen>
     <dimen name="up_size_day24">8dp</dimen>
+    <dimen name="theme_button_size">50dp</dimen>
+    <dimen name="add_alarm_button_size">52dp</dimen>
 </resources>

@@ -71,7 +71,11 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/button10_bg"
         android:fontFamily="@font/roboto"
-
+        android:textAllCaps="false"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
         android:text="10 минут"
         android:textColor="@android:color/white"
         android:textSize="18sp"

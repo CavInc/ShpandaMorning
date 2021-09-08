@@ -59,8 +59,8 @@
 
     <ImageButton
         android:id="@+id/add_alarm_bt"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="@dimen/add_alarm_button_size"
+        android:layout_height="@dimen/add_alarm_button_size"
         android:layout_marginBottom="16dp"
         style="@style/GCircleButton"
         android:contentDescription="addAlarm"

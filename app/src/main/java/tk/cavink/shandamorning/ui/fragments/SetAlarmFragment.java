@@ -130,6 +130,7 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
             mLangTV.setText(R.string.str_lang_ru);
             mLangFlag.setImageResource(R.drawable.ic_russia);
             ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Создать будильник");
+            mRingtoneName.setText("Не выбрано");
         } else {
             ((TextView) getActivity().findViewById(R.id.tv_head_2)).setText("Изменить будильник");
             AlarmData data = mDataManager.getAlarmData();
@@ -153,6 +154,8 @@ public class SetAlarmFragment extends Fragment implements View.OnClickListener,S
             if (data.getRingtone() != null) {
                 setRingtoneName(Uri.parse(data.getRingtone()));
                 mRingtoneUri = data.getRingtone();
+            } else {
+                mRingtoneName.setText("Не выбрано");
             }
             int i = 0;
             for (Boolean l:data.getDays()) {

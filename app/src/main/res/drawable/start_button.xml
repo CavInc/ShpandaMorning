@@ -9,7 +9,7 @@
             <shape android:shape="rectangle">
                 <gradient android:startColor="@color/day_bt_gr_st"
                     android:endColor="@color/day_bt_gr_end"/>
-                <corners android:radius="10dp"/>
+                <corners android:radius="18dp"/>
                 <stroke android:width="2px"
                     android:color="@color/bg_creen"/>
             </shape>
