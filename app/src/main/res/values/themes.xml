@@ -56,7 +56,7 @@
         <item name="seek_bar_color">#B178FF</item>
         <item name="bottom_green_grad_st">#B178FF</item>
         <item name="bottom_green_grad_end">#A970F7</item>
-        <item name="bottom_green_border">#FFFFFF</item>
+        <item name="bottom_green_border">#975BE9</item>
 
         <item name="day_bt_gr_st">#B178FF</item>
         <item name="day_bt_gr_end">#A970F7</item>
@@ -100,8 +100,8 @@
         <item name="bg_bej">#E5E5E5</item>
         <item name="seek_bar_color">#007DFE</item>
         <item name="bottom_green_grad_st">#007DFE</item>
-        <item name="bottom_green_grad_end">#007DFE</item>
-        <item name="bottom_green_border">#FFFFFF</item>
+        <item name="bottom_green_grad_end">#18A0FB</item>
+        <item name="bottom_green_border">#006FA3</item>
 
         <item name="day_bt_gr_st">#007DFE</item>
         <item name="day_bt_gr_end">#18A0FB</item>
@@ -190,7 +190,7 @@
         <item name="seek_bar_color">#656565</item>
         <item name="bottom_green_grad_st">#858585</item>
         <item name="bottom_green_grad_end">#656565</item>
-        <item name="bottom_green_border">#FFFFFFFF</item>
+        <item name="bottom_green_border">#656565</item>
 
         <item name="day_bt_gr_st">#656565</item>
         <item name="day_bt_gr_end">#656565</item>
