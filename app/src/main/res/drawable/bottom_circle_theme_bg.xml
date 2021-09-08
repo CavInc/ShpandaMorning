@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:insetBottom="4dp"
+       android:insetTop="4dp"
+       android:insetLeft="4dp"
+       android:insetRight="4dp"
+       xmlns:android="http://schemas.android.com/apk/res/android">
+    <selector>
+        <item>
+            <shape android:shape="oval">
+                <gradient android:startColor="?attr/bt_tehme_bg_gr_st"
+                    android:endColor="?attr/bt_theme_bg_gr_end"/>
+                <stroke android:color="?attr/bt_theme_bg_border"
+                    android:width="2px"/>
+            </shape>
+        </item>
+    </selector>
+</inset>

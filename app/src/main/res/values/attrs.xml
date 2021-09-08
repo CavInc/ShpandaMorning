@@ -114,4 +114,8 @@
     <attr name="alarm_item_elevator" format="dimension"/>
     <attr name="day_item_elevator" format="dimension"/>
 
+    <attr name="bt_tehme_bg_gr_st" format="reference|color"/>
+    <attr name="bt_theme_bg_gr_end" format="reference|color"/>
+    <attr name="bt_theme_bg_border" format="reference|color"/>
+
 </resources>

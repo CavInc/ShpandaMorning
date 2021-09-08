@@ -8,6 +8,11 @@
         <item name="bottom_green_grad_st">@color/bottom_green_grad_st</item>
         <item name="bottom_green_grad_end">@color/botton_green_grad_end</item>
         <item name="bottom_green_border">@color/bottom_green_border</item>
+
+        <item name="bt_tehme_bg_gr_st">@color/bottom_green_grad_st</item>
+        <item name="bt_theme_bg_gr_end">@color/botton_green_grad_end</item>
+        <item name="bt_theme_bg_border">@color/bottom_green_border</item>
+
         <item name="day_bt_gr_st">@color/day_bt_gr_st</item>
         <item name="day_bt_gr_end">@color/day_bt_gr_end</item>
         <item name="day_bg_no_select">@color/bg_bej</item>
@@ -58,6 +63,10 @@
         <item name="bottom_green_grad_end">#A970F7</item>
         <item name="bottom_green_border">#975BE9</item>
 
+        <item name="bt_tehme_bg_gr_st">#B178FF</item>
+        <item name="bt_theme_bg_gr_end">#A970F7</item>
+        <item name="bt_theme_bg_border">#FFFFFFFF</item>
+
         <item name="day_bt_gr_st">#B178FF</item>
         <item name="day_bt_gr_end">#A970F7</item>
         <item name="day_bg_no_select">#FFFFFF</item>
@@ -102,6 +111,10 @@
         <item name="bottom_green_grad_st">#007DFE</item>
         <item name="bottom_green_grad_end">#18A0FB</item>
         <item name="bottom_green_border">#006FA3</item>
+
+        <item name="bt_tehme_bg_gr_st">#007DFE</item>
+        <item name="bt_theme_bg_gr_end">#007DFE</item>
+        <item name="bt_theme_bg_border">#FFFFFFFF</item>
 
         <item name="day_bt_gr_st">#007DFE</item>
         <item name="day_bt_gr_end">#18A0FB</item>
@@ -148,6 +161,10 @@
         <item name="bottom_green_grad_end">#2E2E2E</item>
         <item name="bottom_green_border">#18A0FB</item>
 
+        <item name="bt_tehme_bg_gr_st">#2E2E2E</item>
+        <item name="bt_theme_bg_gr_end">#2E2E2E</item>
+        <item name="bt_theme_bg_border">#18A0FB</item>
+
         <item name="day_bt_gr_st">#2E2E2E</item>
         <item name="day_bt_gr_end">#2E2E2E</item>
         <item name="day_bg_no_select">#373737</item>
@@ -191,6 +208,10 @@
         <item name="bottom_green_grad_st">#858585</item>
         <item name="bottom_green_grad_end">#656565</item>
         <item name="bottom_green_border">#656565</item>
+
+        <item name="bt_tehme_bg_gr_st">#858585</item>
+        <item name="bt_theme_bg_gr_end">#656565</item>
+        <item name="bt_theme_bg_border">#FFFFFF</item>
 
         <item name="day_bt_gr_st">#656565</item>
         <item name="day_bt_gr_end">#656565</item>
