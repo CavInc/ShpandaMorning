@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/day_bt"
-    android:elevation="4dp"
+    android:elevation="?attr/day_item_elevator"
     android:layout_marginRight="@dimen/day_mr"
     android:layout_marginLeft="@dimen/day_ml"
     android:layout_width="wrap_content"

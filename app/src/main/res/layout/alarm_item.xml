@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:elevation="10dp"
+    android:elevation="?attr/alarm_item_elevator"
     android:background="@drawable/element_bg"
     android:layout_marginBottom="16dp"
     android:layout_width="match_parent"

@@ -44,6 +44,10 @@
         <item name="set_alarm_item_elevator">6dp</item>
         <item name="lang_arrow_left">@drawable/ic_chevron_left_black_24dp</item>
         <item name="lang_arrow_rigth">@drawable/ic_chevron_right_black_24dp</item>
+
+        <item name="number_picker_elevator">10dp</item>
+        <item name="alarm_item_elevator">10dp</item>
+        <item name="day_item_elevator">4dp</item>
     </style>
 
     <style name="VioletTheme" parent="AppTheme.NoActionBar">
@@ -87,6 +91,9 @@
         <item name="set_alarm_item_elevator">0dp</item>
         <item name="lang_arrow_left">@drawable/ic_chevron_left_white_24dp</item>
         <item name="lang_arrow_rigth">@drawable/ic_chevron_right_white_24dp</item>
+        <item name="number_picker_elevator">0dp</item>
+        <item name="alarm_item_elevator">0dp</item>
+        <item name="day_item_elevator">0dp</item>
     </style>
     <style name="BlueTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#007DFE</item>
@@ -129,6 +136,9 @@
         <item name="set_alarm_item_elevator">0dp</item>
         <item name="lang_arrow_left">@drawable/ic_chevron_left_white_24dp</item>
         <item name="lang_arrow_rigth">@drawable/ic_chevron_right_white_24dp</item>
+        <item name="number_picker_elevator">0dp</item>
+        <item name="alarm_item_elevator">0dp</item>
+        <item name="day_item_elevator">0dp</item>
     </style>
     <style name="DarkTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#2E2E2E</item>
@@ -170,6 +180,9 @@
         <item name="set_alarm_item_elevator">0dp</item>
         <item name="lang_arrow_left">@drawable/ic_chevron_left_white_24dp</item>
         <item name="lang_arrow_rigth">@drawable/ic_chevron_right_white_24dp</item>
+        <item name="number_picker_elevator">0dp</item>
+        <item name="alarm_item_elevator">0dp</item>
+        <item name="day_item_elevator">0dp</item>
     </style>
     <style name="GrayTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#656565</item>
@@ -211,5 +224,8 @@
         <item name="set_alarm_item_elevator">0dp</item>
         <item name="lang_arrow_left">@drawable/ic_chevron_left_white_24dp</item>
         <item name="lang_arrow_rigth">@drawable/ic_chevron_right_white_24dp</item>
+        <item name="number_picker_elevator">0dp</item>
+        <item name="alarm_item_elevator">0dp</item>
+        <item name="day_item_elevator">0dp</item>
     </style>
 </resources>

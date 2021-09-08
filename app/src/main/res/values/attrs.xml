@@ -110,4 +110,8 @@
     <attr name="lang_arrow_left" format="reference"></attr>
     <attr name="lang_arrow_rigth" format="reference"/>
 
+    <attr name="number_picker_elevator" format="dimension"/>
+    <attr name="alarm_item_elevator" format="dimension"/>
+    <attr name="day_item_elevator" format="dimension"/>
+
 </resources>
