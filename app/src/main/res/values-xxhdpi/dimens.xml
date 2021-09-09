@@ -10,4 +10,5 @@
     <dimen name="add_alarm_button_size">62dp</dimen>
     <dimen name="start_hell_msg_h">200dp</dimen>
     <dimen name="start_img_h">184dp</dimen>
+    <dimen name="theme_button_space">8dp</dimen>
 </resources>

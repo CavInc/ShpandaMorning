@@ -24,7 +24,7 @@
         <ImageButton
             android:id="@+id/theme_green"
             android:background="@drawable/bottom_circle_green_bg2"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="@dimen/theme_button_space"
             android:layout_width="@dimen/theme_button_size"
             android:layout_height="@dimen/theme_button_size"/>
         <ImageButton

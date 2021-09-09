@@ -39,5 +39,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         DataManager.getInstance().getPrefManager().setFirstStart(false);
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }
