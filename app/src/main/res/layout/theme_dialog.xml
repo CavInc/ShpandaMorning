@@ -30,19 +30,19 @@
         <ImageButton
             android:id="@+id/theme_velvet"
             android:background="@drawable/bg_circle_purple"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="@dimen/theme_button_space"
             android:layout_width="@dimen/theme_button_size"
             android:layout_height="@dimen/theme_button_size" />
         <ImageButton
             android:id="@+id/theme_blue"
             android:background="@drawable/bg_circle_blue"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="@dimen/theme_button_space"
             android:layout_width="@dimen/theme_button_size"
             android:layout_height="@dimen/theme_button_size" />
         <ImageButton
             android:id="@+id/theme_dark"
             android:background="@drawable/bg_circle_dark"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="@dimen/theme_button_space"
             android:layout_width="@dimen/theme_button_size"
             android:layout_height="@dimen/theme_button_size" />
         <ImageButton

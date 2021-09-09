@@ -20,9 +20,16 @@ public class PrefManager {
 
     public int getThemeId(){
         int themeId = mSharedPreferences.getInt(THEME_ID, R.style.GreenTheme);
+
+        if ((themeId != R.style.GreenTheme) & (themeId != R.style.VioletTheme) & (themeId != R.style.BlueTheme)
+                & (themeId != R.style.DarkTheme) & (themeId != R.style.GrayTheme)){
+            themeId = R.style.GreenTheme;
+        }
+        /*
         if (themeId <= 100 ){
             themeId = R.style.GreenTheme;
         }
+        */
         return themeId;
     }
 
