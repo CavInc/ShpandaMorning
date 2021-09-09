@@ -1,6 +1,7 @@
 package tk.cavink.shandamorning.ui.activites;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
@@ -49,6 +50,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mThemeButton =  findViewById(R.id.theme_change_bt);
         mThemeButton.setOnClickListener(this);
+
+        if (mDataManager.getPrefManager().isFirstStart()) {
+            Intent intent = new Intent(this,StartActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        //mDataManager.getPrefManager().setFirstStart(true);
 
         viewFragment(new AlarmListFragment(),"ALARM_LIST");
     }

@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import java.sql.DatabaseMetaData;
 
@@ -28,6 +30,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
         setContentView(R.layout.activity_start);
         findViewById(R.id.start_bt).setOnClickListener(this);
+        String sp = "Shpanda Morning <font color='black'>!</font>";
+        ((TextView)findViewById(R.id.textView3)).setText(Html.fromHtml(sp), TextView.BufferType.SPANNABLE);
     }
 
     @Override

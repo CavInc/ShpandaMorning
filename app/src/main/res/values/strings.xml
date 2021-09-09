@@ -6,6 +6,7 @@
     <string name="number_picker_formatter">%02d</string>
     <string name="roboto_ligth">roboto-ligth</string>
     <string name="roboto_medium">sans-serif-medium</string>
+    <string name="shpanda_morning">Shpanda Morning !</string>
 
     <string-array name="name_day">
         <item>Пн</item>

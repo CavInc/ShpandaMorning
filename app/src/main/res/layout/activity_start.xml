@@ -11,13 +11,13 @@
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginStart="@dimen/start_ac_left"
+        android:layout_marginBottom="@dimen/start_hell_msg_h"
+        android:layout_marginEnd="78dp"
         android:text="Вас приветствует"
         android:textColor="@android:color/black"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/start_bt"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <Button
@@ -41,28 +41,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/shpanda_start_h"
-        android:layout_marginStart="@dimen/start_ac_left"
+        android:layout_marginEnd="18dp"
         android:fontFamily="@font/roboto"
-        android:text="Shpanda Morning  !"
+        android:text="@string/shpanda_morning"
         android:textColor="@color/bg_creen"
         android:textSize="32sp"
+        android:textFontWeight="400"
         app:layout_constraintBottom_toTopOf="@+id/start_bt"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Shpanda Morning !" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="71dp"
         android:layout_height="71dp"
-        android:layout_marginBottom="@dimen/logo_start_h"
+        android:layout_marginBottom="@dimen/start_img_h"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/start_bt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:srcCompat="@drawable/ic_logo" />
 </android.support.constraint.ConstraintLayout>

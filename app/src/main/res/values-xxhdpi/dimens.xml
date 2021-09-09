@@ -3,9 +3,11 @@
     <dimen name="day_mr">2dp</dimen>
     <dimen name="day_ml">2dp</dimen>
     <dimen name="logo_start_h">178dp</dimen>
-    <dimen name="shpanda_start_h">140dp</dimen>
+    <dimen name="shpanda_start_h">160dp</dimen>
     <dimen name="start_ac_left">78dp</dimen>
     <dimen name="up_size_day24">24dp</dimen>
     <dimen name="theme_button_size">60dp</dimen>
     <dimen name="add_alarm_button_size">62dp</dimen>
+    <dimen name="start_hell_msg_h">200dp</dimen>
+    <dimen name="start_img_h">184dp</dimen>
 </resources>
