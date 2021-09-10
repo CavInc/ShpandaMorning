@@ -1,5 +1,6 @@
 package tk.cavink.shandamorning.ui.activites;
 
+import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -117,6 +118,12 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
                 mMediaPlayer.reset();
                 mMediaPlayer.setDataSource(this, Uri.parse(urlSound));
                 mMediaPlayer.prepare();
+
+                mMediaPlayer.setAudioAttributes(new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ALARM)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build());
+
                 final float volume = (float) (1 - (Math.log(MAX_VOLUME - alarm_volume) / Math.log(MAX_VOLUME)));
 
                 mMediaPlayer.setVolume(alarm_volume/100.0f, alarm_volume/100.0f);
