@@ -80,7 +80,7 @@ public class Func {
     }
     */
 
-    private static int countDay(ArrayList<Boolean> daya){
+    public static int countDay(ArrayList<Boolean> daya){
         int count = 0;
         for (Boolean l:daya){
             if (l) {
@@ -153,8 +153,7 @@ public class Func {
             }
         }
 
-        Log.d("FUNC",dateToStr("yyyy-MM-dd HH:mm:ss",c.getTime()));
-
+        Log.d("FUNC","SET ALARM : "+dateToStr("yyyy-MM-dd HH:mm:ss",c.getTime()));
 
         /*
         Calendar time_up = Calendar.getInstance();
@@ -162,7 +161,11 @@ public class Func {
         */
 
         if (mode) {
-            am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                am.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pi);
+            } else {
+                am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
+            }
         } else {
             am.cancel(pi);
         }

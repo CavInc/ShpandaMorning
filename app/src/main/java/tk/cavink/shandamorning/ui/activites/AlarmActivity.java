@@ -95,7 +95,11 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     protected void onResume() {
         super.onResume();
         // перезапускаем будильник
-        Func.setAlarmAM(this,mAlarmData,true);
+
+        int countDay = Func.countDay(mAlarmData.getDays());
+        if (countDay !=0 ) {
+            Func.setAlarmAM(this, mAlarmData, true);
+        }
 
         if (vibrate) {
             Func.playMessage(this);
