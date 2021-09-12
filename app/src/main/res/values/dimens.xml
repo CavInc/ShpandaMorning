@@ -11,4 +11,5 @@
     <dimen name="start_hell_msg_h">160dp</dimen>
     <dimen name="start_img_h">142dp</dimen>
     <dimen name="theme_button_space">2dp</dimen>
+    <dimen name="theme_space_w">30dp</dimen>
 </resources>

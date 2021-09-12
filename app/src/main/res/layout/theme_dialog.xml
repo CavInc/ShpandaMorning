@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/theme_dialog_bg"
     android:paddingTop="26dp"
-    android:paddingBottom="30dp"
-    android:paddingLeft="30dp"
+    android:paddingBottom="@dimen/theme_space_w"
+    android:paddingLeft="@dimen/theme_space_w"
     android:paddingRight="30dp">
 
     <TextView

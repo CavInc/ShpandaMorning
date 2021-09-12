@@ -2,4 +2,5 @@
 <resources>
     <dimen name="theme_button_space">2dp</dimen>
     <dimen name="theme_button_size">50dp</dimen>
+    <dimen name="theme_space_w">30dp</dimen>
 </resources>
