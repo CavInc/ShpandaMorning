@@ -244,9 +244,9 @@
             android:layout_marginTop="14dp"
             android:layout_weight="1"
             android:elevation="4dp"
-            android:max="100"
+            android:max="15"
             android:min="0"
-            android:progress="80"
+            android:progress="12"
             android:progressDrawable="@drawable/seekbar_draw"
             android:thumb="@drawable/seek_traker" />
     </LinearLayout>
