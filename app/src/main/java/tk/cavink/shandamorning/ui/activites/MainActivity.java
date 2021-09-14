@@ -3,7 +3,9 @@ package tk.cavink.shandamorning.ui.activites;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 
 import android.support.v4.app.Fragment;
@@ -28,6 +30,7 @@ import tk.cavink.shandamorning.ui.fragments.AlarmListFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,ThemeDialogs.ThemeDialogListener {
     private static final int REQUEST_READ_PERMISSION = 654;
+    private static final int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 434;
 
     private DataManager mDataManager;
     private ImageButton mThemeButton;
@@ -66,6 +69,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_READ_PERMISSION);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:" + this.getPackageName()));
+                startActivityForResult(intent, ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE);
+            }
         }
     }
 
