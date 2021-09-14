@@ -71,7 +71,7 @@ public class AlarmListFragment extends Fragment implements View.OnClickListener,
     //Демо режим
     private void setDemo(){
         Calendar c = Calendar.getInstance();
-        c.set(2021,8,21);
+        c.set(2021,8,30);
         Date ls = c.getTime();
         Date currentDate = new Date();
         Log.d("ALF",Func.dateToStr("yyyy-MM-dd",ls));

@@ -12,6 +12,7 @@
     <!-- - для HTC и некоторых других: -->
     <uses-permission android:name="android.permission.QUICKBOOT_POWERON"/>
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
         android:name=".App"

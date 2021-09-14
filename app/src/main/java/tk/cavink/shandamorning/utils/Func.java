@@ -161,7 +161,9 @@ public class Func {
         */
 
         if (mode) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pi);
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 am.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pi);
             } else {
                 am.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pi);
