@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,9 +45,11 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     private int alarm_volume;
 
     private ImageButton mAlarmStop; // кнопа гашения
+    private Button mLong10;
     private float storeX;
     private AudioManager amanager;
     private int volOld;
+    private float storeY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +92,8 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
         //mAlarmStop.setOnClickListener(this);
         mAlarmStop.setOnTouchListener(this);
 
-        findViewById(R.id.long_10).setOnClickListener(this);
+        mLong10 =  findViewById(R.id.long_10);
+        mLong10.setOnClickListener(this);
 
         final Animation animRotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
 
@@ -216,18 +220,22 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
             case R.id.stop_alarm:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_MOVE:
-                        v.setX(event.getRawX() - v.getWidth()/2);
-                        //v.setY(event.getRawY() - v.getHeight());
+                        //v.setX(event.getRawX() - v.getWidth()/2);
+                        v.setY(event.getRawY() - v.getHeight()/2);
                         break;
                     case MotionEvent.ACTION_UP:
                         Log.d(TAG,"EVENT UP");
                         v.setX(storeX);
+                        v.setY(storeY);
+                        mLong10.setVisibility(View.VISIBLE);
                         stopMusic();
                         finish();
                         break;
                     case MotionEvent.ACTION_DOWN:
                         Log.d(TAG,"EVENT DOWN");
                         storeX = v.getX();
+                        storeY = v.getY();
+                        mLong10.setVisibility(View.GONE);
                         v.clearAnimation();
                         break;
                 }
