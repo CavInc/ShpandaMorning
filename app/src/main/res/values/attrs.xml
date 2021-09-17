@@ -118,4 +118,7 @@
     <attr name="bt_theme_bg_gr_end" format="reference|color"/>
     <attr name="bt_theme_bg_border" format="reference|color"/>
 
+    <attr name="no_alarm_text_color" format="reference|color"/>
+    <attr name="no_alarm_image" format="reference"/>
+
 </resources>

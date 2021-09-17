@@ -51,8 +51,10 @@
         <item name="lang_arrow_rigth">@drawable/ic_chevron_right_black_24dp</item>
 
         <item name="number_picker_elevator">10dp</item>
-        <item name="alarm_item_elevator">10dp</item>
+        <item name="alarm_item_elevator">0dp</item>
         <item name="day_item_elevator">4dp</item>
+        <item name="no_alarm_text_color">@android:color/black</item>
+        <item name="no_alarm_image">@drawable/arrow_start_black</item>
     </style>
 
     <style name="VioletTheme" parent="AppTheme.NoActionBar">
@@ -103,6 +105,8 @@
         <item name="number_picker_elevator">0dp</item>
         <item name="alarm_item_elevator">0dp</item>
         <item name="day_item_elevator">0dp</item>
+        <item name="no_alarm_text_color">@android:color/black</item>
+        <item name="no_alarm_image">@drawable/arrow_start_black</item>
     </style>
     <style name="BlueTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#007DFE</item>
@@ -152,6 +156,8 @@
         <item name="number_picker_elevator">0dp</item>
         <item name="alarm_item_elevator">0dp</item>
         <item name="day_item_elevator">0dp</item>
+        <item name="no_alarm_text_color">@android:color/black</item>
+        <item name="no_alarm_image">@drawable/arrow_start_black</item>
     </style>
     <style name="DarkTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#2E2E2E</item>
@@ -200,6 +206,8 @@
         <item name="number_picker_elevator">0dp</item>
         <item name="alarm_item_elevator">0dp</item>
         <item name="day_item_elevator">0dp</item>
+        <item name="no_alarm_text_color">@android:color/white</item>
+        <item name="no_alarm_image">@drawable/arrow_start_white</item>
     </style>
     <style name="GrayTheme" parent="AppTheme.NoActionBar">
         <item name="bg_creen">#656565</item>
@@ -248,5 +256,7 @@
         <item name="number_picker_elevator">0dp</item>
         <item name="alarm_item_elevator">0dp</item>
         <item name="day_item_elevator">0dp</item>
+        <item name="no_alarm_text_color">@android:color/black</item>
+        <item name="no_alarm_image">@drawable/arrow_start_black</item>
     </style>
 </resources>

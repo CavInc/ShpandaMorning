@@ -57,8 +57,8 @@
 
     <ImageButton
         android:id="@+id/success_bt"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="@dimen/add_alarm_button_size"
+        android:layout_height="@dimen/add_alarm_button_size"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -71,8 +71,8 @@
 
     <ImageButton
         android:id="@+id/back_bt"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="@dimen/add_alarm_button_size"
+        android:layout_height="@dimen/add_alarm_button_size"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -85,8 +85,8 @@
 
     <ImageButton
         android:id="@+id/delete_bt"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="@dimen/add_alarm_button_size"
+        android:layout_height="@dimen/add_alarm_button_size"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -241,7 +241,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="14dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:elevation="4dp"
             android:max="15"

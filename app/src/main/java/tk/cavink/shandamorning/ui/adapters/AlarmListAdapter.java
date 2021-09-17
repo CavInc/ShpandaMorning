@@ -65,7 +65,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         } else if (workDay == 7) {
             return "Каждый день";
         } else {
-            return outDay;
+            return outDay.substring(0,outDay.length()-1);
         }
     }
 
