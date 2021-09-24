@@ -48,7 +48,7 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     private Button mLong10;
     private float storeX;
     private AudioManager amanager;
-    private int volOld;
+    private int volOld = 0;
     private float storeY;
 
     @Override
@@ -99,6 +99,9 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
 
         animRotate.setRepeatCount(Animation.INFINITE);
         mAlarmStop.startAnimation(animRotate);
+
+        amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        volOld = amanager.getStreamVolume(AudioManager.STREAM_MUSIC);
     }
 
     @Override
@@ -127,9 +130,6 @@ public class AlarmActivity extends AppCompatActivity implements View.OnClickList
     private void startMusic(){
 
         if (urlSound!=null && urlSound.length()!=0) {
-            amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
-            volOld = amanager.getStreamVolume(AudioManager.STREAM_MUSIC);
-
             Log.d("ALARMA",urlSound);
             try {
                 mMediaPlayer.reset();
